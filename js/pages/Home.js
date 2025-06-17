@@ -68,11 +68,10 @@ export default Vue.defineComponent({
         }
     },
     template: `
-        <div class="min-h-screen bg-gray-900 p-4">
-            <div class="max-w-md mx-auto bg-gray-800 rounded-lg p-6">
-                <h1 class="text-2xl font-bold text-white mb-4 text-center">Welcome</h1>
-                <p class="text-gray-400 mb-6 text-center">A simple todo application with dark theme</p>
-                
+        <div class="min-h-screen bg-gray-900 p-4 flex flex-col items-center">
+            <h1 class="text-3xl font-bold text-white mb-2 text-center">Welcome</h1>
+            <p class="text-gray-400 mb-8 text-center">A simple todo application with dark theme</p>
+            <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-8">
                 <!-- Editor component -->
                 <Editor
                     :key="editorKey"

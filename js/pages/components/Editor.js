@@ -27,7 +27,19 @@ export default {
             fieldValues: {}, // will be set in mounted
             error: '',
             highlightVars: [],
+            showVariableModal: false, // Controls reference modal
         };
+    },
+    computed: {
+        variableReferenceList() {
+            // Example variables for reference; update as needed
+            return [
+                { name: 'user_name', desc: 'The name of the user' },
+                { name: 'date', desc: 'Current date in YYYY-MM-DD format' },
+                { name: 'email', desc: 'The user\'s email address' },
+                // Add more as needed
+            ];
+        }
     },
     mounted() {
         // Now props are fully available
@@ -50,6 +62,9 @@ export default {
         }
     },
     methods: {
+        displayVar(name) {
+            return `{{${name}}}`;
+        },
         onTemplateBlur() {
             // Extract variables and validate
             try {
@@ -78,7 +93,7 @@ export default {
             this.mode = newMode;
         },
         onFieldChange(name, value) {
-            this.$set(this.fieldValues, name, value);
+            this.fieldValues[name] = value;
         },
         onFieldsUpdate(newFields) {
             this.fields = newFields;
@@ -88,25 +103,49 @@ export default {
         }
     },
     template: `
-        <div class="w-full flex justify-center min-h-screen bg-gray-900">
-            <div class="bg-gray-800 rounded-xl shadow-lg p-8 w-full max-w-lg relative">
-                <ModeSwitch :mode="mode" @update:mode="onModeSwitch" class="absolute top-4 right-4 z-10" />
-                <div class="space-y-6">
-                    <label class="block text-gray-300 font-medium mb-1">Template</label>
-
-                    <div>
-                        <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
-                        <textarea
-                            class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem]"
-                            :value="template"
-                            v-if="mode === 'setting'"
-                            @blur="onTemplateBlur"
-                            @input="onTemplateInput"
-                            rows="3"
-                            placeholder="Type your template here..."
-                        ></textarea>
-                        <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
+        <div class="w-full">
+            <!-- Variables Reference Modal -->
+            <div v-if="showVariableModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+                    <h2 class="text-xl font-bold mb-4 text-gray-900">Available Variables</h2>
+                    <ul class="mb-6">
+                        <li v-for="v in variableReferenceList" :key="v.name" class="mb-2">
+                            <span class="font-mono bg-gray-200 px-2 py-1 rounded text-gray-800" v-text="displayVar(v.name)"></span>
+                            <span class="ml-2 text-gray-700">- {{ v.desc }}</span>
+                        </li>
+                    </ul>
+                    <button @click="showVariableModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                    <button @click="showVariableModal = false" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg p-0 overflow-hidden">
+                <!-- Left: Template Section -->
+                <button @click="showVariableModal = true" class="absolute top-4 right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                    Variables Reference
+                </button>
+                <div class="flex-1 min-w-[220px] p-8 md:pr-6 flex flex-col">
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="block text-gray-300 font-medium">Template</label>
+                        <ModeSwitch :mode="mode" @update:mode="onModeSwitch" />
                     </div>
+                    <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
+                    <textarea
+                        class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem]"
+                        :value="template"
+                        v-if="mode === 'setting'"
+                        @blur="onTemplateBlur"
+                        @input="onTemplateInput"
+                        rows="3"
+                        placeholder="Type your template here..."
+                    ></textarea>
+                    <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
+                </div>
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-700 my-8"></div>
+                <!-- Right: Settings/Variables Section -->
+                <div class="flex-1 min-w-[220px] p-8 md:pl-6 flex flex-col">
                     <div v-if="mode === 'setting'">
                         <div class="mb-2 text-gray-200 font-medium">Setting</div>
                         <FieldList :fields="fields" mode="setting" :hide-type="false" @update:fields="onFieldsUpdate" />
@@ -123,6 +162,7 @@ export default {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     `
 };
