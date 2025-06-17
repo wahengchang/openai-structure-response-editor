@@ -1,0 +1,12 @@
+{
+  "name": "openai-structure-response-editor",
+  "version": "1.0.0",
+  "description": "A simple static HTML server using serve.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve --no-clipboard -l 5000 ./"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
