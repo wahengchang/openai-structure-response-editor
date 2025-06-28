@@ -28,6 +28,7 @@ export default {
             error: '',
             highlightVars: [],
             showVariableModal: false, // Controls reference modal
+            shareToast: { show: false, message: '', type: 'success' }
         };
     },
     computed: {
@@ -100,10 +101,63 @@ export default {
         },
         onTemplateInput(e) {
             this.template = e.target.value;
+        },
+        async onShareClick() {
+            console.log('Browser storage:', JSON.stringify(localStorage));
+            
+
+            // Only serialize if there is content
+            if (!this.template && (!this.fields || this.fields.length === 0)) {
+                this.showShareToast('Nothing to share!', 'error');
+                return;
+            }
+            const state = {
+                template: this.template,
+                fields: this.fields,
+                fieldValues: this.fieldValues
+            };
+            const utils = await import('../../utils/share.js');
+            const encoded = utils.encodeEditorState(state);
+            if (utils.isDataTooLong(encoded)) {
+                this.showShareToast('Draft too large to share by link!', 'error');
+                return;
+            }
+            const url = utils.getShareUrl(encoded);
+            console.log('Share URL:', url);
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(url);
+                } else {
+                    // Fallback for older browsers or insecure contexts
+                    const textarea = document.createElement('textarea');
+                    textarea.value = url;
+                    textarea.setAttribute('readonly', '');
+                    textarea.style.position = 'absolute';
+                    textarea.style.left = '-9999px';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+                this.showShareToast('Link copied!');
+            } catch (e) {
+                console.error('Failed to copy link:', e);
+                this.showShareToast('Failed to copy link.', 'error');
+            }
+        },
+        showShareToast(message, type = 'success') {
+            this.shareToast = { show: true, message, type };
+            setTimeout(() => { this.shareToast.show = false; }, 2000);
         }
     },
     template: `
         <div class="w-full">
+            <!-- Share Toast Notification -->
+            <transition name="fade">
+                <div v-if="shareToast.show" :class="['fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow z-50', shareToast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
+                    {{ shareToast.message }}
+                </div>
+            </transition>
             <!-- Variables Reference Modal -->
             <div v-if="showVariableModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
                 <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
@@ -130,6 +184,14 @@ export default {
                         <label class="block text-gray-300 font-medium">Template</label>
                         <ModeSwitch :mode="mode" @update:mode="onModeSwitch" />
                     </div>
+                    <!-- Share Button -->
+                    <button
+                        v-if="template && template.length > 0"
+                        @click="onShareClick"
+                        class="mb-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 transition"
+                    >
+                        Share
+                    </button>
                     <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
                     <textarea
                         class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem]"
@@ -138,7 +200,7 @@ export default {
                         @blur="onTemplateBlur"
                         @input="onTemplateInput"
                         rows="3"
-                        placeholder="Type your template here..."
+                        placeholder="Type your template with {{variable}} here..."
                     ></textarea>
                     <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
                 </div>
