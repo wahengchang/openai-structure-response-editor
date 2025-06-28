@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://openai-structure-response-editor.onrender.com/sitemap.xml

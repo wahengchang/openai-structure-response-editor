@@ -47,9 +47,6 @@ export default {
         this.template = this.initialTemplate || '';
         this.fields = this.initialFields.length ? JSON.parse(JSON.stringify(this.initialFields)) : [];
         this.fieldValues = { ...this.initialFieldValues };
-        console.log('mounted template:', this.template);
-        console.log('mounted fields:', this.fields);
-        console.log('mounted fieldValues:', this.fieldValues);
     },
     watch: {
         initialTemplate(newVal) {
@@ -103,47 +100,56 @@ export default {
             this.template = e.target.value;
         },
         async onShareClick() {
-            console.log('Browser storage:', JSON.stringify(localStorage));
-            
-
-            // Only serialize if there is content
-            if (!this.template && (!this.fields || this.fields.length === 0)) {
-                this.showShareToast('Nothing to share!', 'error');
-                return;
-            }
-            const state = {
+            // Always emit to parent to save first, then continue sharing
+            this.$emit('request-share', {
                 template: this.template,
                 fields: this.fields,
-                fieldValues: this.fieldValues
-            };
-            const utils = await import('../../utils/share.js');
-            const encoded = utils.encodeEditorState(state);
-            if (utils.isDataTooLong(encoded)) {
-                this.showShareToast('Draft too large to share by link!', 'error');
-                return;
-            }
-            const url = utils.getShareUrl(encoded);
-            console.log('Share URL:', url);
-            try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(url);
-                } else {
-                    // Fallback for older browsers or insecure contexts
-                    const textarea = document.createElement('textarea');
-                    textarea.value = url;
-                    textarea.setAttribute('readonly', '');
-                    textarea.style.position = 'absolute';
-                    textarea.style.left = '-9999px';
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
+                fieldValues: this.fieldValues,
+                continueShare: async () => {
+                    // After parent saves, read latest from storage
+                    const utils = await import('../../utils/share.js');
+                    // Read from storage for freshest data
+                    const raw = localStorage.getItem('template-editor-content');
+                    let state;
+                    try {
+                        state = raw ? JSON.parse(raw) : {
+                            template: '', fields: [], fieldValues: {}
+                        };
+                    } catch (e) {
+                        state = { template: '', fields: [], fieldValues: {} };
+                    }
+                    if (!state.template && (!state.fields || state.fields.length === 0)) {
+                        this.showShareToast('Nothing to share!', 'error');
+                        return;
+                    }
+                    const encoded = utils.encodeEditorState(state);
+                    if (utils.isDataTooLong(encoded)) {
+                        this.showShareToast('Draft too large to share by link!', 'error');
+                        return;
+                    }
+                    const url = utils.getShareUrl(encoded);
+                    try {
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            await navigator.clipboard.writeText(url);
+                        } else {
+                            // Fallback for older browsers or insecure contexts
+                            const textarea = document.createElement('textarea');
+                            textarea.value = url;
+                            textarea.setAttribute('readonly', '');
+                            textarea.style.position = 'absolute';
+                            textarea.style.left = '-9999px';
+                            document.body.appendChild(textarea);
+                            textarea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textarea);
+                        }
+                        this.showShareToast('Link copied!');
+                    } catch (e) {
+                        console.error('Failed to copy link:', e);
+                        this.showShareToast('Failed to copy link.', 'error');
+                    }
                 }
-                this.showShareToast('Link copied!');
-            } catch (e) {
-                console.error('Failed to copy link:', e);
-                this.showShareToast('Failed to copy link.', 'error');
-            }
+            });
         },
         showShareToast(message, type = 'success') {
             this.shareToast = { show: true, message, type };
@@ -181,17 +187,25 @@ export default {
                 </button>
                 <div class="flex-1 min-w-[220px] p-8 md:pr-6 flex flex-col">
                     <div class="flex items-center justify-between mb-2">
-                        <label class="block text-gray-300 font-medium">Template</label>
+                        <div class="flex items-center space-x-2">
+                            <label class="block text-gray-300 font-medium">Template</label>
+                            <button
+                                @click="onShareClick"
+                                @keydown.enter.space.prevent="onShareClick"
+                                tabindex="0"
+                                class="ml-1 px-3 h-6 rounded-full border border-indigo-500 text-indigo-500 bg-transparent hover:border-indigo-600 hover:text-indigo-600 focus:border-indigo-700 focus:text-indigo-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-300 relative group transition"
+                                :aria-label="'Copy share link'"
+                                title="Copy share link"
+                            >
+                                Share
+                                <!-- Tooltip -->
+                                <span class="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 rounded bg-gray-800 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+                                    Copy share link
+                                </span>
+                            </button>
+                        </div>
                         <ModeSwitch :mode="mode" @update:mode="onModeSwitch" />
                     </div>
-                    <!-- Share Button -->
-                    <button
-                        v-if="template && template.length > 0"
-                        @click="onShareClick"
-                        class="mb-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 transition"
-                    >
-                        Share
-                    </button>
                     <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
                     <textarea
                         class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem]"

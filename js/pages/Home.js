@@ -21,6 +21,13 @@ export default Vue.defineComponent({
         onEditorInput(newValue) {
             this.lastAction = `Editor updated at ${new Date().toLocaleTimeString()}`;
         },
+        onEditorRequestShare(payload) {
+            // Save state, then call continueShare callback
+            this.saveEditorStateToStorage(payload.template, payload.fieldValues, payload.fields);
+            if (payload.continueShare && typeof payload.continueShare === 'function') {
+                payload.continueShare();
+            }
+        },
         saveEditorStateToStorage(template, fieldValues, fields) {
             try {
                 const data = { template, fieldValues, fields };
@@ -110,6 +117,7 @@ export default Vue.defineComponent({
                     :initial-template="editorContent"
                     placeholder="Write something..."
                     @save-template="onEditorSave"
+                    @request-share="onEditorRequestShare"
                 />
             </div>
         </div>
