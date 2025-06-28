@@ -1,7 +1,8 @@
 import FieldList from './FieldList.js';
-import ModeSwitch from './ModeSwitch.js';
+
 import Preview from './Preview.js';
-import { extractVariables, renderTemplate } from '../../utils/template.js';
+import ModeSwitch from './ModeSwitch.js';
+import { extractVariables } from '../../utils/template.js';
 
 export default {
     components: { FieldList, ModeSwitch, Preview },
@@ -205,26 +206,48 @@ export default {
                     Variables Reference
                 </button>
                 <div class="flex-1 min-w-[220px] p-8 md:pr-6 flex flex-col">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <label class="block text-gray-300 font-medium">Template</label>
-                            <button
-                                @click="onShareClick"
-                                @keydown.enter.space.prevent="onShareClick"
-                                tabindex="0"
-                                class="ml-1 px-3 h-6 rounded-full border border-indigo-500 text-indigo-500 bg-transparent hover:border-indigo-600 hover:text-indigo-600 focus:border-indigo-700 focus:text-indigo-700 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-300 relative group transition"
-                                :aria-label="'Copy share link'"
-                                title="Copy share link"
-                            >
-                                Share
-                                <!-- Tooltip -->
-                                <span class="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 rounded bg-gray-800 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
-                                    Copy share link
-                                </span>
-                            </button>
-                        </div>
-                        <ModeSwitch :mode="mode" @update:mode="onModeSwitch" />
-                    </div>
+                    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center space-x-4">
+        <label class="block text-gray-300 font-medium">Template</label>
+        <div class="flex items-center bg-gray-900 rounded-full p-1 shadow-sm border border-gray-700">
+            <button
+                :class="['flex items-center px-4 py-1 rounded-full transition font-semibold text-sm focus:outline-none',
+                    mode === 'working' ? 'bg-blue-600 text-white shadow' : 'text-gray-400 hover:text-blue-400']"
+                @click="onModeSwitch('working')"
+                aria-label="Preview mode"
+                title="Preview"
+                tabindex="0"
+            >
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M1.75 12s3.5-7.25 10.25-7.25S22.25 12 22.25 12s-3.5 7.25-10.25 7.25S1.75 12 1.75 12Zm10.25 3.25A3.25 3.25 0 1 0 8.75 12a3.25 3.25 0 0 0 3.25 3.25Z"></path></svg>
+                Preview
+            </button>
+            <button
+                :class="['flex items-center px-4 py-1 rounded-full transition font-semibold text-sm focus:outline-none',
+                    mode === 'setting' ? 'bg-blue-600 text-white shadow' : 'text-gray-400 hover:text-blue-400']"
+                @click="onModeSwitch('setting')"
+                aria-label="Edit mode"
+                title="Edit"
+                tabindex="0"
+            >
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487a2.75 2.75 0 1 1 3.89 3.89L7.5 21.63l-4.243.354.354-4.243L16.862 4.487Z"></path></svg>
+                Edit
+            </button>
+        </div>
+    </div>
+    <button
+        @click="onShareClick"
+        @keydown.enter.space.prevent="onShareClick"
+        tabindex="0"
+        class="ml-2 px-4 py-1 rounded-full border border-indigo-500 text-indigo-400 bg-transparent hover:border-indigo-600 hover:text-indigo-200 focus:border-indigo-700 focus:text-indigo-100 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-300 relative group transition"
+        :aria-label="'Copy share link'"
+        title="Copy share link"
+    >
+        Share
+        <span class="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 rounded bg-gray-800 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+            Copy share link
+        </span>
+    </button>
+</div>
                     <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
                     <textarea
                         ref="templateTextarea"
