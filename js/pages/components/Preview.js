@@ -35,7 +35,7 @@ export default {
             <template v-else>
                 {{ rendered }}
                 <button
-                    class="absolute bottom-2 right-2 px-2 py-1 rounded text-xs bg-gray-700 text-gray-200 hover:bg-blue-600 hover:text-white outline-none"
+                    class="absolute top-2 right-2 px-2 py-1 rounded text-xs bg-gray-700 text-gray-200 hover:bg-blue-600 hover:text-white outline-none"
                     @click.stop="copyToClipboard"
                     tabindex="0"
                     title="Copy to clipboard"

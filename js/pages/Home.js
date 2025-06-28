@@ -113,7 +113,7 @@ export default Vue.defineComponent({
                 </div>
             </transition>
             <h1 class="text-3xl font-bold text-white mb-2 text-center">Welcome</h1>
-            <p class="text-gray-400 mb-8 text-center">A simple todo application with dark theme</p>
+            <p class="text-gray-400 mb-8 text-center">A simple Prompt Making application with dark theme</p>
             <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-8">
                 <!-- Editor component -->
                 <Editor
