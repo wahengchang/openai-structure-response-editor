@@ -17,6 +17,12 @@ export default Vue.defineComponent({
         };
     },
     methods: {
+        showToast(message, type = 'success') {
+            this.toast = { show: true, message, type };
+            setTimeout(() => {
+                this.toast.show = false;
+            }, 1800);
+        },
         // Handler for editor change (optional)
         onEditorInput(newValue) {
             this.lastAction = `Editor updated at ${new Date().toLocaleTimeString()}`;

@@ -43,12 +43,21 @@ export default {
         }
     },
     mounted() {
-        // Now props are fully available
-        this.template = this.initialTemplate || '';
-        this.fields = this.initialFields.length ? JSON.parse(JSON.stringify(this.initialFields)) : [];
+        // Set initial values from props
+        this.template = this.initialTemplate;
+        this.fields = JSON.parse(JSON.stringify(this.initialFields));
         this.fieldValues = { ...this.initialFieldValues };
+        this.highlightVars = extractVariables(this.template);
+        this.$nextTick(() => {
+            this.autoResizeTextarea();
+        });
     },
     watch: {
+        template(newVal) {
+            this.$nextTick(() => {
+                this.autoResizeTextarea();
+            });
+        },
         initialTemplate(newVal) {
             this.template = newVal || '';
         },
@@ -96,8 +105,18 @@ export default {
         onFieldsUpdate(newFields) {
             this.fields = newFields;
         },
-        onTemplateInput(e) {
+        onTemplateInputAutoResize(e) {
             this.template = e.target.value;
+            this.$nextTick(() => {
+                this.autoResizeTextarea();
+            });
+        },
+        autoResizeTextarea() {
+            const textarea = this.$refs.templateTextarea;
+            if (textarea) {
+                textarea.style.height = 'auto';
+                textarea.style.height = textarea.scrollHeight + 'px';
+            }
         },
         async onShareClick() {
             // Always emit to parent to save first, then continue sharing
@@ -208,11 +227,12 @@ export default {
                     </div>
                     <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
                     <textarea
-                        class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem]"
+                        ref="templateTextarea"
+                        class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem] resize-none"
                         :value="template"
                         v-if="mode === 'setting'"
                         @blur="onTemplateBlur"
-                        @input="onTemplateInput"
+                        @input="onTemplateInputAutoResize"
                         rows="3"
                         placeholder="Type your template with {{variable}} here..."
                     ></textarea>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template List | OpenAI Structure Response Editor</title>
+    <meta name="description" content="Browse categorized templates for structured responses, ready to use and share.">
+    <link rel="canonical" href="https://openai-structure-response-editor.onrender.com/templates.html" />
+    <meta property="og:title" content="Template List | OpenAI Structure Response Editor" />
+    <meta property="og:description" content="Browse categorized templates for structured responses, ready to use and share." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://openai-structure-response-editor.onrender.com/templates.html" />
+    <meta property="og:image" content="https://openai-structure-response-editor.onrender.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Template List | OpenAI Structure Response Editor" />
+    <meta name="twitter:description" content="Browse categorized templates for structured responses, ready to use and share." />
+    <meta name="twitter:image" content="https://openai-structure-response-editor.onrender.com/og-image.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen text-white">
+    <!-- Header with navigation -->
+    <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-white">OpenAI Structure Response Editor</a>
+            <nav>
+                <a href="/" class="text-gray-300 hover:text-blue-400 px-3">Home</a>
+                <a href="/templates.html" class="text-blue-400 px-3 font-semibold">Templates</a>
+            </nav>
+        </div>
+    </header>
+    <div class="max-w-4xl mx-auto py-12 px-4">
+        <h1 class="text-3xl font-bold mb-6">Template List</h1>
+        <div id="template-list" class="space-y-10"></div>
+    </div>
+    <script>
+        // Load templates from JSON and render
+        fetch('templates.json')
+            .then(response => response.json())
+            .then(data => {
+                // Group templates by category
+                const grouped = {};
+                data.forEach(item => {
+                    if (!grouped[item.category]) grouped[item.category] = [];
+                    grouped[item.category].push(item);
+                });
+                const colors = [
+                    'text-blue-300',
+                    'text-green-300',
+                    'text-yellow-300',
+                    'text-pink-300',
+                    'text-purple-300',
+                    'text-orange-300'
+                ];
+                let colorIdx = 0;
+                let html = '';
+                Object.keys(grouped).forEach((cat, i) => {
+                    const color = colors[i % colors.length];
+                    html += `<section><h2 class="text-2xl font-semibold mb-4 ${color}">${cat}</h2><ul class="space-y-2">`;
+                    grouped[cat].forEach(tpl => {
+                        html += `<li class="flex justify-between items-center bg-gray-800 rounded p-3"><span>${tpl.title}</span><a href="${tpl.link}" target="_blank" class="text-blue-400 hover:text-blue-200 underline">Share Link</a></li>`;
+                    });
+                    html += '</ul></section>';
+                    colorIdx++;
+                });
+                document.getElementById('template-list').innerHTML = html;
+            });
+    </script>
+</body>
+<script>
+function autoResize(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('textarea').forEach(autoResize);
+});
+</script>
+</html>
