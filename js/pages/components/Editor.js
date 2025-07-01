@@ -49,6 +49,13 @@ export default {
         this.fields = JSON.parse(JSON.stringify(this.initialFields));
         this.fieldValues = { ...this.initialFieldValues };
         this.highlightVars = extractVariables(this.template);
+
+        // Check for shared link (?data=XXXXX) and set preview mode if present
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('data')) {
+            this.mode = 'working'; // Set to preview mode
+        }
+
         this.$nextTick(() => {
             this.autoResizeTextarea();
         });
@@ -298,7 +305,10 @@ export default {
                         </button>
                     </div>
                     <div v-else>
-                        <div class="mb-2 text-gray-200 font-medium">Variables</div>
+                        <div class="mb-1 text-gray-200 font-medium">Variables</div>
+                        <div class="mb-8 text-gray-400 text-sm">
+                            Variables let you customize the template. Fill in the values to see them reflected in the preview.
+                        </div>
                         <FieldList :fields="fields" mode="working" :hide-type="true" @input="onFieldChange" />
                     </div>
                 </div>

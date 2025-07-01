@@ -14,6 +14,14 @@ export default {
         fields: {
             handler(newFields) {
                 this.localFields = JSON.parse(JSON.stringify(newFields));
+
+                if (this.mode === 'working' && newFields.length > 0) {
+                    this.$nextTick(() => {
+                        newFields.forEach((field) => {
+                            this.handleInput(field, field.default);
+                        });
+                    });
+                }
             },
             deep: true
         }
@@ -27,6 +35,7 @@ export default {
             this.$emit('input', field.name, val);
         }
     },
+
     template: `
         <div>
             <div v-if="mode === 'setting' && !hideType">
@@ -37,6 +46,7 @@ export default {
                     </div>
                 </template>
                 <template v-else>
+                localFields
                     <table class="w-full text-sm text-left text-gray-400">
                         <thead><tr class="bg-gray-700">
                             <th class="px-2 py-1">Variable</th>

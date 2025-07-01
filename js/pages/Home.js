@@ -95,7 +95,7 @@ export default Vue.defineComponent({
                     this.editorFieldValues = decoded.fieldValues || {};
                     this.editorFields = decoded.fields || [];
                     this.lastAction = 'Loaded shared draft from URL';
-                    this.showToast('Loaded shared draft!', 'success');
+                    // this.showToast('Loaded shared draft!', 'success');
                     // Save to storage for persistence
                     this.saveEditorStateToStorage(this.editorContent, this.editorFieldValues, this.editorFields);
                 }
