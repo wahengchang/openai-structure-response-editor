@@ -70,6 +70,15 @@ export default {
         }
     },
     methods: {
+        clearStorageAndReload() {
+            try {
+                localStorage.clear();
+                sessionStorage.clear();
+            } catch (e) {
+                // ignore errors
+            }
+            location.reload();
+        },
         displayVar(name) {
             return `{{${name}}}`;
         },
@@ -249,16 +258,29 @@ export default {
     </button>
 </div>
                     <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" />
-                    <textarea
-                        ref="templateTextarea"
-                        class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 transition min-h-[10rem] resize-none"
-                        :value="template"
-                        v-if="mode === 'setting'"
-                        @blur="onTemplateBlur"
-                        @input="onTemplateInputAutoResize"
-                        rows="3"
-                        placeholder="Type your template with {{variable}} here..."
-                    ></textarea>
+                    <div v-if="mode === 'setting'" class="relative mb-2">
+                        <textarea
+                            ref="templateTextarea"
+                            class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-0 transition min-h-[10rem] resize-none pr-14"
+                            :value="template"
+                            @blur="onTemplateBlur"
+                            @input="onTemplateInputAutoResize"
+                            rows="3"
+                            placeholder="Type your template with {{variable}} here..."
+                        ></textarea>
+                        <button
+    @click="clearStorageAndReload"
+    class="absolute bottom-2 right-2 flex items-center px-2 py-0.5 rounded-md bg-gray-600 hover:bg-red-600 focus:bg-red-700 transition text-white text-xs font-medium shadow-sm gap-1 outline-none"
+    title="Clear all browser storage and reload"
+    aria-label="Clear all browser storage and reload"
+    tabindex="0"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v1m6-1v1m-7 4h8m2 0a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1h10zm-9 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+    </svg>
+    <span class="ml-1">Clean</span>
+</button>
+                    </div>
                     <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
                 </div>
                 <!-- Divider -->
