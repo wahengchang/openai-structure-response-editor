@@ -211,7 +211,7 @@ export default {
             </div>
             <div class="flex flex-col md:flex-row max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg p-0 overflow-hidden">
                 <!-- Left: Template Section -->
-                <button @click="showVariableModal = true" class="absolute top-4 right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                <button @click="showVariableModal = true" class="absolute top-4 right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 px-3 text-sm rounded shadow">
                     Variables Reference
                 </button>
                 <div class="flex-1 min-w-[220px] p-8 md:pr-6 flex flex-col">

@@ -112,8 +112,8 @@ export default Vue.defineComponent({
                     {{ toast.message }}
                 </div>
             </transition>
-            <h1 class="text-3xl font-bold text-white mb-2 text-center">Welcome</h1>
-            <p class="text-gray-400 mb-8 text-center">A simple Prompt Making application with dark theme</p>
+            <h1 class="text-3xl font-bold text-white mb-2 text-center">Create &amp; Share Prompt Templates Instantly</h1>
+            <p class="text-gray-400 mb-8 text-center">Design flexible prompts with placeholders. Generate a shareable link for friends or teammates—no sign up needed.</p>
             <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-8">
                 <!-- Editor component -->
                 <Editor
