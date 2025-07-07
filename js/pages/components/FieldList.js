@@ -46,7 +46,6 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                localFields
                     <table class="w-full text-sm text-left text-gray-400">
                         <thead><tr class="bg-gray-700">
                             <th class="px-2 py-1">Variable</th>
