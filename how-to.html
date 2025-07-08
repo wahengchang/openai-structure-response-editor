@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template List | Prompt Maker</title>
+    <meta name="description" content="Browse categorized templates for structured responses, ready to use and share.">
+    <link rel="canonical" href="https://prompt.jctec.me/templates.html" />
+    <meta property="og:title" content="Template List | Prompt Maker" />
+    <meta property="og:description"
+        content="Browse categorized templates for structured responses, ready to use and share." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://prompt.jctec.me/templates.html" />
+    <meta property="og:image" content="https://prompt.jctec.me/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Template List | Prompt Maker" />
+    <meta name="twitter:description"
+        content="Browse categorized templates for structured responses, ready to use and share." />
+    <meta name="twitter:image" content="https://prompt.jctec.me/og-image.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PZLKT04SD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1PZLKT04SD');
+    </script>
+</head>
+
+<body class="bg-gray-900 min-h-screen text-white">
+    <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-white">Prompt Maker</a>
+            <nav>
+                <a href="/" class="text-gray-300 hover:text-blue-400 px-3">Home</a>
+                <a href="/templates.html" class="text-blue-400 px-3 font-semibold">Templates</a>
+            </nav>
+        </div>
+    </header>
+    <main class="max-w-2xl mx-auto py-10 px-4">
+        <h1 class="text-3xl font-bold mb-6 text-center">How to Use the Prompt Editor</h1>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">1. Open the App</h2>
+            <p class="mb-2">Navigate to <a href="https://prompt.jctec.me/"
+                    class="text-blue-400 underline">https://prompt.jctec.me/</a>. You’ll land straight in <span
+                    class="font-mono">Editing Mode</span>, ready to begin.</p>
+            <img src="/how-to/1.screenshot.png"
+                alt="Screenshot of the Prompt Maker app with Editor Pane, Toolbar, and Status Indicator labeled"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+
+
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">2. Familiarize Yourself with the UI</h2>
+            <p class="mb-2">
+                <ul class="list-disc pl-6 space-y-1">
+                    <li><strong>Editor Pane:</strong> A large text area where you type your template.</li>
+                    <li><strong>Toolbar:</strong> Buttons to switch between Editing/Preview modes, save, and share.</li>
+                    <li><strong>Status Indicator:</strong> Shows when your work is autosaved locally.</li>
+                </ul>
+            </p>
+            <img class="mb-2" src="/how-to/2.EditorPane.png"
+                alt="Screenshot of the Prompt Maker app's UI, with labeled areas: Editor Pane (large text area), Toolbar (buttons), and Status Indicator (autosave status)"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">3. Building Your First Template</h2>
+            <p class="mb-2">In <span class="font-mono">Editing Mode</span>, create your prompt template and designate
+                variables:</p>
+            <div class="bg-gray-800 rounded p-4 mb-2 font-mono text-sm">
+                Write a personalized greeting to {{name}} who enjoys {{hobby}}.<br>
+                Keep the tone {{tone}} and limit it to {{max_length}} words.
+            </div>
+            <p class="mb-2">Variables are wrapped in double curly braces: <span
+                    class="font-mono">{{variable_name}}</span>.</p>
+            <p class="mb-2">You can name them using letters, numbers, and underscores.</p>
+
+            <img class="mb-2" src="/how-to/3.sampleTemplate.png"
+                alt="Screenshot of the Prompt Maker app with an example template, showcasing variables and default values"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+            
+
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">4. Saving Your Work</h2>
+            <ul class="list-disc pl-6 space-y-1">
+                <li>Click the Save (<span class="font-mono">💾</span>) icon in the toolbar.</li>
+                <li>Your template is stored in local storage—no server involved.</li>
+                <li>Reload or close the tab; when you return, your latest draft reappears instantly.</li>
+                <li class="text-yellow-300">Tip: Clear your browser data if you ever want to reset all saved templates.
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">5. Preview Mode</h2>
+            <ul class="list-disc pl-6 space-y-1 mb-2">
+                <li>Once your template is ready, click the Preview (<span class="font-mono">👁️</span>) icon.</li>
+                <li>You’ll see input fields for each variable:</li>
+            </ul>
+            <table class="min-w-full bg-gray-800 rounded mb-2 text-sm">
+                <thead>
+                    <tr class="border-b border-gray-700">
+                        <th class="py-1 px-2 text-left">Variable</th>
+                        <th class="py-1 px-2 text-left">Default</th>
+                        <th class="py-1 px-2 text-left">Input Field</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-1 px-2">name</td>
+                        <td class="py-1 px-2">Elon</td>
+                        <td class="py-1 px-2">[ ]</td>
+                    </tr>
+                    <tr>
+                        <td class="py-1 px-2">hobby</td>
+                        <td class="py-1 px-2">Auto Driving</td>
+                        <td class="py-1 px-2">[ ]</td>
+                    </tr>
+                    <tr>
+                        <td class="py-1 px-2">tone</td>
+                        <td class="py-1 px-2">Casual</td>
+                        <td class="py-1 px-2">[ ]</td>
+                    </tr>
+                    <tr>
+                        <td class="py-1 px-2">max_length</td>
+                        <td class="py-1 px-2">200</td>
+                        <td class="py-1 px-2">[ ]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <img class="mb-2" src="/how-to/4.previewMode.png"
+                alt="Screenshot of the Prompt Maker app in Preview Mode, with input fields for each variable and a rendered output"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+
+                <br/>
+            <p class="mb-2">Fill in values, and the rendered prompt appears below:</p>
+            <div class="bg-gray-800 rounded p-4 mb-2 font-mono text-sm">
+                Write a personalized greeting to Elon Musk who enjoys Auto Driving.
+                Keep the tone Poet and limit it to 200 words.
+            </div>
+
+            <p class="text-xs text-gray-500 mb-4">
+                You can now copy the rendered text and use it in ChatGPT or other apps.
+            </p>
+            
+            <img class="mb-2" src="/how-to/5.resultChatgpt.png"
+                alt="Screenshot of the ChatGPT interface with the rendered output of the Prompt Maker app"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+            
+
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">6. Sharing & Bookmarking</h2>
+            <h3 class="font-semibold mb-1">Generating a Shareable Link</h3>
+            <ul class="list-disc pl-6 mb-2">
+                <li>While in Preview Mode, click Share (<span class="font-mono">🔗</span>).</li>
+                <li>A URL is generated containing your template structure and any variable defaults.</li>
+                <li>Anyone opening that link will land directly in Preview Mode with your template and inputs intact.
+                </li>
+            </ul>
+            <div class="bg-gray-800 rounded p-3 mb-4 text-xs text-gray-200 break-all">
+              <span class="block mb-1 font-semibold text-gray-300">Example Share Link:</span>
+              <code class="text-blue-300">
+                <a href="https://prompt.jctec.me/?data=eyJ0ZW1wbGF0ZSI6IldyaXRlIGEgcGVyc29uYWxpemVkIGdyZWV0aW5nIHRvIHt7bmFtZX19IHdobyBlbmpveXMge3tob2JieX19LlxuXG5KZWVwIHRoZSB0b25lIHt7dG9uZX19IGFuZCBsaW1pdCBpdCB0byB7e21heF9sZW5ndGh9fSB3b3Jkcy4iLCJmaWVsZFZhbHVlcyI6eyJuYW1lIjoiRWxvbiBNdXNrIiwiaG9iYnkiOiJBdXRvIERyaXZpbmciLCJ0b25lIjoiUG9ldCIsIm1heF9sZW5ndGgiOiIyMDAifSwiZmllbGRzIjpbeyJuYW1lIjoibmFtZSIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJFbG9uIE11c2sifSx7Im5hbWUiOiJob2JieSIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJBdXRvIERyaXZpbmcifSx7Im5hbWUiOiJ0b25lIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IlBvZXQifSx7Im5hbWUiOiJtYXhfbGVuZ3RoIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IjIwMCJ9XX0%3D" target="_blank" class="underline">
+                  https://prompt.jctec.me/?data=... (long link)
+                </a>
+              </code>
+              <div class="mt-1 text-gray-400">This will render a prompt with a template and values pre-filled.</div>
+            </div>
+
+            <img class="mb-2" src="/how-to/6.shareButton.png"
+                alt="Screenshot of the Prompt Maker app's Share button, which generates a shareable link"
+                class="rounded-lg shadow-lg border border-gray-700 mb-4" />
+            
+
+            <h3 class="font-semibold mb-1">Bookmarking for Quick Access</h3>
+            <ul class="list-disc pl-6">
+                <li>Simply bookmark the generated URL in your browser.</li>
+                <li>Return at any time to tweak variables or refine your template.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="font-semibold mb-1">URL Length Management</h3>
+            <ul class="list-disc pl-6">
+                <li>If your URL exceeds 2,000 characters, consider a URL shortener.</li>
+                <li>Alternatively, split complex logic into multiple templates.</li>
+            </ul>
+        </section>
+    </main>
+
+  <footer class="w-full py-4 flex justify-center items-center bg-gray-900 border-t border-gray-800">
+    <span class="text-sm text-gray-400">
+      Made with <span aria-label="love" role="img" class="mx-1">❤️</span> by
+      <a href="https://jctec.me" target="_blank" rel="noopener" class="underline hover:text-blue-400 font-medium">jctec.me</a>
+    </span>
+  </footer>
+</body>
+
+</html>

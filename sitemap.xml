@@ -8,4 +8,8 @@
     <loc>https://prompt.jctec.me/templates</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://prompt.jctec.me/how-to</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
