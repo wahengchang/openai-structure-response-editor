@@ -33,7 +33,28 @@ export default {
         },
         handleInput(field, val) {
             this.$emit('input', field.name, val);
+        },
+        handleInputResize(field, event) {
+            this.handleInput(field, event.target.value);
+            this.autoResize(event.target);
+        },
+        autoResize(element) {
+            if (!element) return;
+            element.style.height = 'auto'; // Reset height to recalculate
+            element.style.height = element.scrollHeight + 'px';
+        },
+        resizeAll() {
+            this.$nextTick(() => {
+                const textareas = this.$el.querySelectorAll('textarea');
+                textareas.forEach(el => this.autoResize(el));
+            });
         }
+    },
+    mounted() {
+        this.resizeAll();
+    },
+    updated() {
+        this.resizeAll();
     },
 
     template: `
@@ -81,7 +102,7 @@ export default {
                         <div class="w-1/3 text-gray-300 pr-2">{{ field.name }}</div>
                         <div class="w-2/3">
                             <input v-if="field.type === 'number'" :id="'fld-' + field.name" type="number" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm" />
-                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm resize-none" rows="2"></textarea>
+                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm resize-none overflow-hidden" rows="1" style="min-height: 2.5rem;"></textarea>
                         </div>
                     </div>
                 </template>
