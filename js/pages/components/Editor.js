@@ -159,8 +159,9 @@ export default {
                         return;
                     }
                     const encoded = utils.encodeEditorState(state);
-                    if (utils.isDataTooLong(encoded)) {
-                        this.showShareToast('Draft too large to share by link!', 'error');
+                    const maxLength = utils.SHARE_URL_MAX_LENGTH || 2000;
+                    if (utils.isDataTooLong(encoded, maxLength)) {
+                        this.showShareToast(`Draft too large to share by link! (${encoded.length}/${maxLength})`, 'error');
                         return;
                     }
                     const url = utils.getShareUrl(encoded);

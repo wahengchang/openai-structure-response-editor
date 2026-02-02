@@ -40,6 +40,8 @@ export function getShareUrl(encodedData) {
 }
 
 // --- Utility: check if encoded data is too long for URL (default 2000 chars) ---
-export function isDataTooLong(encodedData, maxLength = 2000) {
+export const SHARE_URL_MAX_LENGTH = 2048;
+
+export function isDataTooLong(encodedData, maxLength = SHARE_URL_MAX_LENGTH) {
     return encodedData.length > maxLength;
 }
