@@ -22,6 +22,7 @@ Prompt Maker is a static Vue 3 + Tailwind web app for building, previewing, and 
 - `npm install` — install `serve`.
 - `npm run dev` — local static server at `http://localhost:5001/`.
 - `npm run clean` — remove `._*` files (macOS metadata).
+- `node js/cli/generate-share-links.mjs <input.json> [output.json] [--base /]` — generate `/?data=...` links; if `output.json` is omitted, append directly to `templates.json`.
 
 ## Coding Rules (strict)
 - Use Tailwind utility classes only; do not add separate CSS files or frameworks.
