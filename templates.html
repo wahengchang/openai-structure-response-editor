@@ -82,14 +82,35 @@
                 let html = '';
                 Object.keys(grouped).forEach((cat, i) => {
                     const color = colors[i % colors.length];
-                    html += `<section><h2 class="text-2xl font-semibold mb-4 ${color}">${cat}</h2><ul class="space-y-2">`;
+                    const itemCount = grouped[cat].length;
+                    const listId = `category-list-${i}`;
+                    const shouldCollapse = itemCount >= 5;
+                    const toggleButton = shouldCollapse
+                        ? `<button type="button" data-collapse-target="${listId}" data-count="${itemCount}" aria-expanded="false" class="text-xs md:text-sm text-blue-300 hover:text-blue-200 underline shrink-0">Show ${itemCount} templates</button>`
+                        : '';
+
+                    html += `<section><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4"><h2 class="text-xl md:text-2xl font-semibold ${color} break-words leading-snug">${cat}</h2>${toggleButton}</div><ul id="${listId}" class="space-y-2 ${shouldCollapse ? 'hidden' : ''}">`;
                     grouped[cat].forEach(tpl => {
-                        html += `<li class="flex justify-between items-center bg-gray-800 rounded p-3"><span>${tpl.title}</span><a href="${tpl.link}" target="_blank" class="text-blue-400 hover:text-blue-200 underline">Share Link</a></li>`;
+                        html += `<li class="bg-gray-800 rounded p-3"><div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4"><span class="text-sm sm:text-base text-gray-100 break-words leading-snug">${tpl.title}</span><a href="${tpl.link}" target="_blank" class="text-blue-400 hover:text-blue-200 underline shrink-0 self-start">Share Link</a></div></li>`;
                     });
                     html += '</ul></section>';
                     colorIdx++;
                 });
                 document.getElementById('template-list').innerHTML = html;
+
+                document.querySelectorAll('[data-collapse-target]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const targetId = btn.getAttribute('data-collapse-target');
+                        const count = btn.getAttribute('data-count');
+                        const target = document.getElementById(targetId);
+                        if (!target) return;
+
+                        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                        btn.setAttribute('aria-expanded', String(!isExpanded));
+                        target.classList.toggle('hidden', isExpanded);
+                        btn.textContent = isExpanded ? `Show ${count} templates` : 'Hide templates';
+                    });
+                });
             });
     </script>
 </body>
