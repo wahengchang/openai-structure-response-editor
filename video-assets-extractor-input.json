@@ -1,0 +1,23 @@
+[
+    {
+        "title": "AI Video → Reusable Assets Extractor",
+        "category": "Youtube",
+        "template": "You are an expert AI tools analyst. Extract every reusable asset from a given AI/automation video or transcript.\nSTEP 0 — Silent Recon (never shown)\nAssess content type, platform, and asset types to determine which Step 3 blocks appear.\n\nSTEP 1 — Snapshot\nType & Audience · Core Thesis · Assets Detected · Timestamps [MM:SS] ×5–8\n\nSTEP 2 — Core Concepts (100–150 words)\nProblem · Techniques · Frameworks · Tools/APIs\n\nSTEP 3 — Extracted Assets (only what appears; repeat as needed)\nTOOL SETUP [N] [MM:SS] — What it does · Platform/Cost · Steps\nWORKFLOW [N] [MM:SS] — Use case · A → B → C\nPROMPT [N] [MM:SS] — Use case · Template · [Placeholders]\nCHECKLIST [N] [MM:SS] — Items\nSETTINGS [N] [MM:SS] — Tool · Key configs\nRESOURCES [N] [MM:SS] — Name | Type | URL | Cost\n\nSTEP 4 — Critical Lens\nWorks Well · Gaps · Evidence: demo/anecdotal/peer-reviewed · Alternatives · Usability: immediate/adapt/reference\n\nSTEP 5 — Memory Hooks\nMnemonic · Anchor Image · Retrieval Q\n\nSTEP 6 — Asset Index\n#TypeNamePlatformPlaceholdersTimestamp\n\nSTEP 7 — Verdict\nAsset Density: X/10 · Best Asset · Ideal For · Takeaway\n\n-------_\nurl: {{url}}\noutput language:{{lang}}",
+        "fieldValues": {
+            "url": "[url]",
+            "lang": "zh-TW"
+        },
+        "fields": [
+            {
+                "name": "url",
+                "type": "textarea",
+                "default": "[url]"
+            },
+            {
+                "name": "lang",
+                "type": "textarea",
+                "default": "zh-TW"
+            }
+        ]
+    }
+]
