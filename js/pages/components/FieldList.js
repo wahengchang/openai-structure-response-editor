@@ -72,15 +72,15 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                    <table class="w-full text-xs text-left text-gray-400">
+                    <table class="w-full table-fixed text-xs text-left text-gray-400">
                         <thead><tr class="bg-gray-700">
-                            <th class="px-2 py-0.5">Variable</th>
-                            <th class="px-2 py-0.5">Type</th>
+                            <th class="px-2 py-0.5 w-20">Variable</th>
+                            <th class="px-2 py-0.5 w-16">Type</th>
                             <th class="px-2 py-0.5">Default</th>
                         </tr></thead>
                         <tbody>
                             <tr v-for="(field, idx) in localFields" :key="field.name" class="bg-gray-800">
-                            <td class="px-2 py-0.5 text-white font-mono">{{ field.name }}</td>
+                            <td class="px-2 py-0.5 text-white font-mono break-all">{{ field.name }}</td>
                             <td class="px-2 py-0.5">
                                 <select v-model="field.type" @change="updateField(idx, 'type', field.type)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs">
                                     <option value="textarea">Text</option>

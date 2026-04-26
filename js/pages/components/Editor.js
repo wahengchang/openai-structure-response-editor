@@ -241,7 +241,7 @@ export default {
                     </button>
                 </div>
                 <!-- Two-column body. Working mode reverses on mobile so Variables sit above Preview. -->
-                <div :class="['flex md:grid md:grid-cols-[1fr_1px_15rem]', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
+                <div :class="['flex md:grid md:grid-cols-[1fr_1px_18rem]', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
                     <!-- Left: Template / Preview (takes remaining space on desktop) -->
                     <div class="flex-1 min-w-0 p-3 md:p-4 md:pr-2 flex flex-col">
                         <div class="flex items-center justify-between flex-wrap gap-y-2 mb-3">
