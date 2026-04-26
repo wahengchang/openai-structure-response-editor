@@ -41,6 +41,19 @@ export default {
                 { name: 'email', desc: 'The user\'s email address' },
                 // Add more as needed
             ];
+        },
+        unfilledFieldNames() {
+            if (!Array.isArray(this.fields) || this.fields.length === 0) return [];
+            return this.fields
+                .filter((f) => {
+                    const v = this.fieldValues ? this.fieldValues[f.name] : undefined;
+                    if (v === undefined || v === null) return true;
+                    const trimmed = String(v).trim();
+                    if (trimmed === '') return true;
+                    const def = f && f.default !== undefined && f.default !== null ? String(f.default).trim() : '';
+                    return def !== '' && trimmed === def;
+                })
+                .map((f) => f.name);
         }
     },
     mounted() {
@@ -158,10 +171,20 @@ export default {
                         this.showShareToast('Nothing to share!', 'error');
                         return;
                     }
+                    // Drop fieldValues that don't correspond to a current field — leftovers from
+                    // previous templates inflate the URL and leak unrelated state.
+                    if (state.fields && state.fieldValues) {
+                        const keep = new Set(state.fields.map((f) => f.name));
+                        const pruned = {};
+                        for (const k of Object.keys(state.fieldValues)) {
+                            if (keep.has(k)) pruned[k] = state.fieldValues[k];
+                        }
+                        state.fieldValues = pruned;
+                    }
                     const encoded = utils.encodeEditorState(state);
                     const maxLength = utils.SHARE_URL_MAX_LENGTH || 2000;
                     if (utils.isDataTooLong(encoded, maxLength)) {
-                        this.showShareToast(`Draft too large to share by link! (${encoded.length}/${maxLength})`, 'error');
+                        this.showShareToast(`Template is too large for a share link (${encoded.length}/${maxLength} chars). Try shortening default values, or copy the template manually.`, 'error');
                         return;
                     }
                     const url = utils.getShareUrl(encoded);
@@ -275,6 +298,10 @@ export default {
                                     Copy share link
                                 </span>
                             </button>
+                        </div>
+                        <div v-if="mode === 'working' && unfilledFieldNames.length > 0" class="mb-2 px-3 py-2 rounded border border-yellow-600 bg-yellow-900 bg-opacity-30 text-yellow-200 text-xs flex items-start gap-2">
+                            <svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path></svg>
+                            <span>{{ unfilledFieldNames.length }} variable{{ unfilledFieldNames.length === 1 ? '' : 's' }} still use the default value: <span class="font-mono">{{ unfilledFieldNames.join(', ') }}</span>. Fill them above before sharing.</span>
                         </div>
                         <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" @notify="showShareToast" />
                         <div v-if="mode === 'setting'" class="relative mb-2">
