@@ -103,9 +103,9 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                    <div v-for="field in fields" :key="field.name" class="flex flex-col md:flex-row md:items-start mb-2">
-                        <label :for="'fld-' + field.name" class="md:w-1/3 md:pr-2 mb-0.5 md:mb-0 md:pt-1 text-gray-300 font-mono text-xs break-words">{{ field.name }}</label>
-                        <div class="w-full md:w-2/3">
+                    <div v-for="field in fields" :key="field.name" class="flex flex-col mb-2">
+                        <label :for="'fld-' + field.name" class="mb-0.5 text-gray-300 font-mono text-xs break-words">{{ field.name }}</label>
+                        <div class="w-full">
                             <input v-if="field.type === 'number'" :id="'fld-' + field.name" type="number" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-xs" />
                             <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-xs resize-none overflow-auto" rows="1" style="min-height: 2rem; max-height: 14rem;"></textarea>
                         </div>
