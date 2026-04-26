@@ -242,8 +242,8 @@ export default {
                 </div>
                 <!-- Two-column body. Working mode reverses on mobile so Variables sit above Preview. -->
                 <div :class="['flex md:flex-row', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
-                    <!-- Left: Template / Preview -->
-                    <div class="flex-1 min-w-0 md:min-w-[220px] p-3 md:p-4 md:pr-2 flex flex-col">
+                    <!-- Left: Template / Preview (~67% on desktop) -->
+                    <div class="flex-1 min-w-0 md:basis-2/3 md:min-w-[320px] p-3 md:p-4 md:pr-2 flex flex-col">
                         <div class="flex items-center justify-between flex-wrap gap-y-2 mb-3">
                             <div class="flex items-center gap-3 flex-wrap">
                                 <label class="hidden sm:block text-gray-300 font-medium">Template</label>
@@ -314,8 +314,8 @@ export default {
                     </div>
                     <!-- Divider -->
                     <div class="hidden md:block w-px bg-gray-700 my-4"></div>
-                    <!-- Right: Settings / Variables -->
-                    <div class="flex-1 min-w-0 md:min-w-[220px] p-3 md:p-4 md:pl-2 flex flex-col">
+                    <!-- Right: Settings / Variables (~33% on desktop) -->
+                    <div class="flex-1 min-w-0 md:basis-1/3 md:min-w-[260px] p-3 md:p-4 md:pl-2 flex flex-col">
                         <div v-if="mode === 'setting'">
                             <div class="mb-2 text-gray-200 text-sm font-medium">Setting</div>
                             <FieldList :fields="fields" mode="setting" :hide-type="false" @update:fields="onFieldsUpdate" />
