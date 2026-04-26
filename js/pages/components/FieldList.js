@@ -40,8 +40,13 @@ export default {
         },
         autoResize(element) {
             if (!element) return;
-            element.style.height = 'auto'; // Reset height to recalculate
-            element.style.height = element.scrollHeight + 'px';
+            element.style.height = 'auto';
+            const computed = window.getComputedStyle(element);
+            const max = parseFloat(computed.maxHeight);
+            const target = isFinite(max) && max > 0
+                ? Math.min(element.scrollHeight, max)
+                : element.scrollHeight;
+            element.style.height = target + 'px';
         },
         resizeAll() {
             this.$nextTick(() => {
@@ -98,15 +103,14 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                    <div v-for="field in fields" :key="field.name" class="flex items-center mb-3">
-                        <div class="w-1/3 text-gray-300 pr-2">{{ field.name }}</div>
-                        <div class="w-2/3">
+                    <div v-for="field in fields" :key="field.name" class="flex flex-col md:flex-row md:items-start mb-4 md:mb-3">
+                        <label :for="'fld-' + field.name" class="md:w-1/3 md:pr-2 mb-1 md:mb-0 md:pt-1.5 text-gray-300 font-mono text-sm break-words">{{ field.name }}</label>
+                        <div class="w-full md:w-2/3">
                             <input v-if="field.type === 'number'" :id="'fld-' + field.name" type="number" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm" />
-                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm resize-none overflow-hidden" rows="1" style="min-height: 2.5rem;"></textarea>
+                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm resize-none overflow-auto" rows="1" style="min-height: 2.5rem; max-height: 16rem;"></textarea>
                         </div>
                     </div>
                 </template>
-            </div>
             </div>
         </div>
     `
