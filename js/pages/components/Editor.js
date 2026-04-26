@@ -28,20 +28,8 @@ export default {
             fieldValues: {}, // will be set in mounted
             error: '',
             highlightVars: [],
-            showVariableModal: false, // Controls reference modal
             shareToast: { show: false, message: '', type: 'success' }
         };
-    },
-    computed: {
-        variableReferenceList() {
-            // Example variables for reference; update as needed
-            return [
-                { name: 'user_name', desc: 'The name of the user' },
-                { name: 'date', desc: 'Current date in YYYY-MM-DD format' },
-                { name: 'email', desc: 'The user\'s email address' },
-                // Add more as needed
-            ];
-        }
     },
     mounted() {
         // Set initial values from props
@@ -85,9 +73,6 @@ export default {
                 // ignore errors
             }
             location.reload();
-        },
-        displayVar(name) {
-            return `{{${name}}}`;
         },
         onTemplateBlur() {
             // Extract variables and validate
@@ -211,34 +196,15 @@ export default {
                     {{ shareToast.message }}
                 </div>
             </transition>
-            <!-- Variables Reference Modal -->
-            <div v-if="showVariableModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-                <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
-                    <h2 class="text-xl font-bold mb-4 text-gray-900">Available Variables</h2>
-                    <ul class="mb-6">
-                        <li v-for="v in variableReferenceList" :key="v.name" class="mb-2">
-                            <span class="font-mono bg-gray-200 px-2 py-1 rounded text-gray-800" v-text="displayVar(v.name)"></span>
-                            <span class="ml-2 text-gray-700">- {{ v.desc }}</span>
-                        </li>
-                    </ul>
-                    <button @click="showVariableModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
-                    <button @click="showVariableModal = false" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
-                </div>
-            </div>
             <div class="relative max-w-4xl mx-auto bg-gray-800 rounded-lg shadow overflow-hidden">
                 <!-- Top utility row -->
-                <div class="flex justify-end gap-1.5 px-3 pt-2 md:px-4 md:pt-3">
+                <div class="flex justify-end px-3 pt-2 md:px-4 md:pt-3">
                     <a href="/how-to.html" target="_blank"
-                        class="bg-gray-700 hover:bg-blue-600 text-white font-semibold py-1 px-2.5 text-xs rounded shadow-sm flex items-center no-underline"
-                        title="How to use">
-                        <span class="font-bold mr-1">?</span>
-                        How to
+                        class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-blue-400 no-underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-0.5"
+                        title="How to use Prompt Maker">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.243 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg>
+                        How to use
                     </a>
-                    <button @click="showVariableModal = true" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-2.5 text-xs rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
-                        Variables Reference
-                    </button>
                 </div>
                 <!-- Two-column body. Working mode reverses on mobile so Variables sit above Preview. -->
                 <div :class="['flex md:grid md:grid-cols-[1fr_1px_18rem]', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
