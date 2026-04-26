@@ -88,8 +88,8 @@ export default {
                                 </select>
                             </td>
                             <td class="px-2 py-0.5">
-                                <input v-if="field.type === 'number'" type="number" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-20" />
-                                <input v-else type="text" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-32" />
+                                <input v-if="field.type === 'number'" type="number" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-full" />
+                                <input v-else type="text" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-full" />
                             </td>
                         </tr>
                     </tbody>

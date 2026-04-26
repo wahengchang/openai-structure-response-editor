@@ -241,9 +241,9 @@ export default {
                     </button>
                 </div>
                 <!-- Two-column body. Working mode reverses on mobile so Variables sit above Preview. -->
-                <div :class="['flex md:flex-row', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
-                    <!-- Left: Template / Preview (~67% on desktop) -->
-                    <div class="flex-1 min-w-0 md:basis-2/3 md:min-w-[320px] p-3 md:p-4 md:pr-2 flex flex-col">
+                <div :class="['flex md:grid md:grid-cols-[1fr_1px_19rem]', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
+                    <!-- Left: Template / Preview (takes remaining space on desktop) -->
+                    <div class="flex-1 min-w-0 p-3 md:p-4 md:pr-2 flex flex-col">
                         <div class="flex items-center justify-between flex-wrap gap-y-2 mb-3">
                             <div class="flex items-center gap-3 flex-wrap">
                                 <label class="hidden sm:block text-gray-300 font-medium">Template</label>
@@ -313,9 +313,9 @@ export default {
                         <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
                     </div>
                     <!-- Divider -->
-                    <div class="hidden md:block w-px bg-gray-700 my-4"></div>
-                    <!-- Right: Settings / Variables (~33% on desktop) -->
-                    <div class="flex-1 min-w-0 md:basis-1/3 md:min-w-[260px] p-3 md:p-4 md:pl-2 flex flex-col">
+                    <div class="hidden md:block bg-gray-700 my-4"></div>
+                    <!-- Right: Settings / Variables (fixed 19rem on desktop so it sizes to content) -->
+                    <div class="flex-1 min-w-0 p-3 md:p-4 md:pl-2 flex flex-col">
                         <div v-if="mode === 'setting'">
                             <div class="mb-2 text-gray-200 text-sm font-medium">Setting</div>
                             <FieldList :fields="fields" mode="setting" :hide-type="false" @update:fields="onFieldsUpdate" />
