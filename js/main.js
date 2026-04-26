@@ -5,9 +5,7 @@ const app = Vue.createApp({
     template: `
         <div class="min-h-screen bg-gray-900">
             <Navbar />
-            <div class="pt-16">
-                <router-view></router-view>
-            </div>
+            <router-view></router-view>
         </div>
     `
 });

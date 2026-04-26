@@ -14,6 +14,7 @@ export default Vue.defineComponent({
             storageKey: 'template-editor-content',
             editorKey: 0, // for force re-render
             toast: { show: false, message: '', type: 'success' }, // simple toast state
+            hasSharedParam: false, // hides marketing block when arriving via ?file= or ?data=
         };
     },
     methods: {
@@ -106,6 +107,7 @@ export default Vue.defineComponent({
         const params = new URLSearchParams(window.location.search);
         const fileParam = params.get('file');
         const dataParam = params.get('data');
+        this.hasSharedParam = !!(fileParam || dataParam);
         if (fileParam) {
             this.loadFromFileParam(fileParam);
         } else if (dataParam) {
@@ -127,16 +129,18 @@ export default Vue.defineComponent({
         }
     },
     template: `
-        <div class="min-h-screen bg-gray-900 p-4 flex flex-col items-center">
+        <div class="min-h-screen bg-gray-900 p-4 md:p-6 flex flex-col items-center">
             <!-- Toast Notification -->
             <transition name="fade">
                 <div v-if="toast.show" :class="['fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow z-50', toast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
                     {{ toast.message }}
                 </div>
             </transition>
-            <h1 class="text-3xl font-bold text-white mb-2 text-center">Create &amp; Share Prompt Templates Instantly</h1>
-            <p class="text-gray-400 mb-8 text-center">Design flexible prompts with placeholders. Generate a shareable link for friends or teammates—no sign up needed.</p>
-            <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-8">
+            <template v-if="!hasSharedParam">
+                <h1 class="text-2xl md:text-3xl font-bold text-white mb-2 text-center">Create &amp; Share Prompt Templates Instantly</h1>
+                <p class="text-gray-400 mb-6 md:mb-8 text-center text-sm md:text-base">Design flexible prompts with placeholders. Generate a shareable link for friends or teammates—no sign up needed.</p>
+            </template>
+            <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-3 md:p-8">
                 <!-- Editor component -->
                 <Editor
                     :key="editorKey"
