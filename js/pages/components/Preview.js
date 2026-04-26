@@ -5,6 +5,7 @@ export default {
         template: { type: String, default: '' },
         values: { type: Object, default: () => ({}) }
     },
+    emits: ['notify'],
     computed: {
         rendered() {
             return renderTemplate(this.template, this.values);
@@ -18,9 +19,10 @@ export default {
             try {
                 await navigator.clipboard.writeText(this.rendered);
                 this.copied = true;
-                setTimeout(() => { this.copied = false; }, 1200);
+                this.$emit('notify', 'Preview copied to clipboard.', 'success');
+                setTimeout(() => { this.copied = false; }, 2000);
             } catch (e) {
-                // fallback or error
+                this.$emit('notify', 'Could not copy preview to clipboard.', 'error');
             }
         }
     },

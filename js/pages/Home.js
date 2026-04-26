@@ -22,7 +22,7 @@ export default Vue.defineComponent({
             this.toast = { show: true, message, type };
             setTimeout(() => {
                 this.toast.show = false;
-            }, 1800);
+            }, 2000);
         },
         // Handler for editor change (optional)
         onEditorInput(newValue) {
