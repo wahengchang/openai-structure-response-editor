@@ -207,7 +207,7 @@ export default {
         <div class="w-full">
             <!-- Share Toast Notification -->
             <transition name="fade">
-                <div v-if="shareToast.show" :class="['fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow z-50', shareToast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
+                <div v-if="shareToast.show" :class="['fixed top-3 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow z-50 text-sm', shareToast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
                     {{ shareToast.message }}
                 </div>
             </transition>
@@ -227,24 +227,24 @@ export default {
                     <button @click="showVariableModal = false" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
                 </div>
             </div>
-            <div class="relative max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative max-w-4xl mx-auto bg-gray-800 rounded-lg shadow overflow-hidden">
                 <!-- Top utility row -->
-                <div class="flex justify-end gap-2 px-4 pt-4 md:px-6 md:pt-6">
+                <div class="flex justify-end gap-1.5 px-3 pt-2 md:px-4 md:pt-3">
                     <a href="/how-to.html" target="_blank"
-                        class="bg-gray-700 hover:bg-blue-600 text-white font-bold py-1.5 px-3 text-sm rounded shadow flex items-center no-underline"
+                        class="bg-gray-700 hover:bg-blue-600 text-white font-semibold py-1 px-2.5 text-xs rounded shadow-sm flex items-center no-underline"
                         title="How to use">
                         <span class="font-bold mr-1">?</span>
                         How to
                     </a>
-                    <button @click="showVariableModal = true" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 px-3 text-sm rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <button @click="showVariableModal = true" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-2.5 text-xs rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
                         Variables Reference
                     </button>
                 </div>
                 <!-- Two-column body. Working mode reverses on mobile so Variables sit above Preview. -->
                 <div :class="['flex md:flex-row', mode === 'working' ? 'flex-col-reverse' : 'flex-col']">
                     <!-- Left: Template / Preview -->
-                    <div class="flex-1 min-w-0 md:min-w-[220px] p-4 md:p-8 md:pr-6 flex flex-col">
-                        <div class="flex items-center justify-between flex-wrap gap-y-2 mb-4">
+                    <div class="flex-1 min-w-0 md:min-w-[220px] p-3 md:p-4 md:pr-2 flex flex-col">
+                        <div class="flex items-center justify-between flex-wrap gap-y-2 mb-3">
                             <div class="flex items-center gap-3 flex-wrap">
                                 <label class="hidden sm:block text-gray-300 font-medium">Template</label>
                                 <div class="flex items-center bg-gray-900 rounded-full p-1 shadow-sm border border-gray-700">
@@ -290,7 +290,7 @@ export default {
                         <div v-if="mode === 'setting'" class="relative mb-2">
                             <textarea
                                 ref="templateTextarea"
-                                class="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-0 transition min-h-[10rem] resize-none pr-14"
+                                class="w-full p-2 rounded bg-gray-700 text-white text-sm border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-0 transition min-h-[8rem] resize-none pr-14"
                                 :value="template"
                                 @blur="onTemplateBlur"
                                 @input="onTemplateInputAutoResize"
@@ -313,23 +313,23 @@ export default {
                         <div v-if="error" class="text-red-400 text-xs mt-1">{{ error }}</div>
                     </div>
                     <!-- Divider -->
-                    <div class="hidden md:block w-px bg-gray-700 my-8"></div>
+                    <div class="hidden md:block w-px bg-gray-700 my-4"></div>
                     <!-- Right: Settings / Variables -->
-                    <div class="flex-1 min-w-0 md:min-w-[220px] p-4 md:p-8 md:pl-6 flex flex-col">
+                    <div class="flex-1 min-w-0 md:min-w-[220px] p-3 md:p-4 md:pl-2 flex flex-col">
                         <div v-if="mode === 'setting'">
-                            <div class="mb-2 text-gray-200 font-medium">Setting</div>
+                            <div class="mb-2 text-gray-200 text-sm font-medium">Setting</div>
                             <FieldList :fields="fields" mode="setting" :hide-type="false" @update:fields="onFieldsUpdate" />
                             <button
-                                class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition"
+                                class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1.5 px-3 text-sm rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition"
                                 @click="$emit('save-template', { template, fields, fieldValues })"
                             >
                                 Save
                             </button>
                         </div>
                         <div v-else>
-                            <div class="mb-1 text-gray-200 font-medium">Variables</div>
-                            <div class="mb-6 md:mb-8 text-gray-400 text-sm">
-                                Variables let you customize the template. Fill in the values to see them reflected in the preview.
+                            <div class="mb-0.5 text-gray-200 text-sm font-medium">Variables</div>
+                            <div class="mb-3 text-gray-400 text-xs">
+                                Fill in the values to see them reflected in the preview.
                             </div>
                             <FieldList :fields="fields" mode="working" :hide-type="true" @input="onFieldChange" />
                         </div>

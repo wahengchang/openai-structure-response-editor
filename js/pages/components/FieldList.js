@@ -72,24 +72,24 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                    <table class="w-full text-sm text-left text-gray-400">
+                    <table class="w-full text-xs text-left text-gray-400">
                         <thead><tr class="bg-gray-700">
-                            <th class="px-2 py-1">Variable</th>
-                            <th class="px-2 py-1">Type</th>
-                            <th class="px-2 py-1">Default</th>
+                            <th class="px-2 py-0.5">Variable</th>
+                            <th class="px-2 py-0.5">Type</th>
+                            <th class="px-2 py-0.5">Default</th>
                         </tr></thead>
                         <tbody>
                             <tr v-for="(field, idx) in localFields" :key="field.name" class="bg-gray-800">
-                            <td class="px-2 py-1 text-white">{{ field.name }}</td>
-                            <td class="px-2 py-1">
-                                <select v-model="field.type" @change="updateField(idx, 'type', field.type)" class="bg-gray-700 text-white rounded px-1">
+                            <td class="px-2 py-0.5 text-white font-mono">{{ field.name }}</td>
+                            <td class="px-2 py-0.5">
+                                <select v-model="field.type" @change="updateField(idx, 'type', field.type)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs">
                                     <option value="textarea">Text</option>
                                     <option value="number">Number</option>
                                 </select>
                             </td>
-                            <td class="px-2 py-1">
-                                <input v-if="field.type === 'number'" type="number" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 w-20" />
-                                <input v-else type="text" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 w-32" />
+                            <td class="px-2 py-0.5">
+                                <input v-if="field.type === 'number'" type="number" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-20" />
+                                <input v-else type="text" v-model="field.default" @input="updateField(idx, 'default', field.default)" class="bg-gray-700 text-white rounded px-1 py-0.5 text-xs w-32" />
                             </td>
                         </tr>
                     </tbody>
@@ -103,11 +103,11 @@ export default {
                     </div>
                 </template>
                 <template v-else>
-                    <div v-for="field in fields" :key="field.name" class="flex flex-col md:flex-row md:items-start mb-4 md:mb-3">
-                        <label :for="'fld-' + field.name" class="md:w-1/3 md:pr-2 mb-1 md:mb-0 md:pt-1.5 text-gray-300 font-mono text-sm break-words">{{ field.name }}</label>
+                    <div v-for="field in fields" :key="field.name" class="flex flex-col md:flex-row md:items-start mb-2">
+                        <label :for="'fld-' + field.name" class="md:w-1/3 md:pr-2 mb-0.5 md:mb-0 md:pt-1 text-gray-300 font-mono text-xs break-words">{{ field.name }}</label>
                         <div class="w-full md:w-2/3">
-                            <input v-if="field.type === 'number'" :id="'fld-' + field.name" type="number" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm" />
-                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-sm resize-none overflow-auto" rows="1" style="min-height: 2.5rem; max-height: 16rem;"></textarea>
+                            <input v-if="field.type === 'number'" :id="'fld-' + field.name" type="number" :value="field.default" @input="handleInput(field, $event.target.value)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-xs" />
+                            <textarea v-else :id="'fld-' + field.name" :value="field.default" @input="handleInputResize(field, $event)" class="w-full px-2 py-1 rounded bg-gray-700 text-white text-xs resize-none overflow-auto" rows="1" style="min-height: 2rem; max-height: 14rem;"></textarea>
                         </div>
                     </div>
                 </template>

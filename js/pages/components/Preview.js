@@ -27,7 +27,7 @@ export default {
         }
     },
     template: `
-        <div class="relative group bg-gray-900 p-4 rounded border border-gray-700 min-h-[3rem] text-white whitespace-pre-wrap cursor-default select-text opacity-90">
+        <div class="relative group bg-gray-900 p-3 rounded border border-gray-700 min-h-[3rem] text-sm text-white whitespace-pre-wrap cursor-default select-text opacity-90">
             <template v-if="!rendered || rendered.trim() === ''">
                 <div class="flex flex-col items-center justify-center h-20 text-gray-400 text-sm italic opacity-80">
                     <svg class="w-6 h-6 mb-1 text-gray-500 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20.5C7.305 20.5 3.5 16.695 3.5 12S7.305 3.5 12 3.5 20.5 7.305 20.5 12 16.695 20.5 12 20.5Z"></path></svg>

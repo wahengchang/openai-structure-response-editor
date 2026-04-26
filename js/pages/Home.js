@@ -129,18 +129,18 @@ export default Vue.defineComponent({
         }
     },
     template: `
-        <div class="min-h-screen bg-gray-900 p-4 md:p-6 flex flex-col items-center">
+        <div class="min-h-screen bg-gray-900 p-2 md:p-4 flex flex-col items-center">
             <!-- Toast Notification -->
             <transition name="fade">
-                <div v-if="toast.show" :class="['fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow z-50', toast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
+                <div v-if="toast.show" :class="['fixed top-3 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow z-50 text-sm', toast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white']">
                     {{ toast.message }}
                 </div>
             </transition>
             <template v-if="!hasSharedParam">
-                <h1 class="text-2xl md:text-3xl font-bold text-white mb-2 text-center">Create &amp; Share Prompt Templates Instantly</h1>
-                <p class="text-gray-400 mb-6 md:mb-8 text-center text-sm md:text-base">Design flexible prompts with placeholders. Generate a shareable link for friends or teammates—no sign up needed.</p>
+                <h1 class="text-lg md:text-2xl font-bold text-white mb-1 mt-2 text-center">Create &amp; Share Prompt Templates Instantly</h1>
+                <p class="text-gray-400 mb-3 md:mb-4 text-center text-xs md:text-sm">Design flexible prompts with placeholders. Generate a shareable link for friends or teammates—no sign up needed.</p>
             </template>
-            <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-lg p-3 md:p-8">
+            <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-lg p-1.5 md:p-3">
                 <!-- Editor component -->
                 <Editor
                     :key="editorKey"
