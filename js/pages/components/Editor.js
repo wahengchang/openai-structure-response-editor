@@ -50,9 +50,9 @@ export default {
         this.fieldValues = { ...this.initialFieldValues };
         this.highlightVars = extractVariables(this.template);
 
-        // Check for shared link (?data=XXXXX) and set preview mode if present
+        // Check for shared link (?data=... or ?file=...) and set preview mode if present
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('data')) {
+        if (urlParams.has('data') || urlParams.has('file')) {
             this.mode = 'working'; // Set to preview mode
         }
 

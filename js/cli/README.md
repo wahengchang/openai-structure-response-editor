@@ -49,4 +49,4 @@ Each generated item:
 
 ## Notes
 - Uses shared core logic in `js/utils/share-core.mjs` (same encode logic as web app).
-- Warns when generated link length exceeds `2048`.
+- If a generated `?data=` link would exceed `2048` chars, the prompt is written to `prompts/<slug>.json` (relative to `cwd`) and the emitted link becomes `/?file=<slug>`. The web app loads these via same-origin fetch on page load.

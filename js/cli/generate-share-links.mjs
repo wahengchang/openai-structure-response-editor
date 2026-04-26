@@ -62,6 +62,30 @@ function ensureBasePath(rawBasePath) {
     return withLeadingSlash.endsWith('/') ? withLeadingSlash.slice(0, -1) : withLeadingSlash;
 }
 
+function slugify(str) {
+    const slug = String(str)
+        .toLowerCase()
+        .normalize('NFKD')
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    return slug || 'prompt';
+}
+
+function uniqueSlug(title, used) {
+    const base = slugify(title);
+    let slug = base;
+    let n = 2;
+    while (used.has(slug)) {
+        slug = `${base}-${n}`;
+        n += 1;
+    }
+    used.add(slug);
+    return slug;
+}
+
 function main() {
     const parsed = parseArgs(process.argv);
     if (parsed.help || !parsed.inputPath) {
@@ -78,20 +102,33 @@ function main() {
     }
 
     const basePath = ensureBasePath(parsed.basePath);
+    const promptsDir = path.resolve('prompts');
     const result = [];
-    const warnings = [];
+    const usedSlugs = new Set();
+    const fileFallbacks = [];
 
     inputList.forEach((item, index) => {
         const state = normalizeState(item);
         const encodedData = encodeEditorState(state);
-        const link = `${basePath}?data=${encodedData}`;
+        const dataLink = `${basePath}?data=${encodedData}`;
 
-        if (link.length > MAX_URL_LENGTH) {
-            warnings.push({
+        let link;
+        if (dataLink.length > MAX_URL_LENGTH) {
+            if (!fs.existsSync(promptsDir)) {
+                fs.mkdirSync(promptsDir, { recursive: true });
+            }
+            const slug = uniqueSlug(item.title || `prompt-${index}`, usedSlugs);
+            const filePath = path.join(promptsDir, `${slug}.json`);
+            fs.writeFileSync(filePath, `${JSON.stringify(state, null, 4)}\n`, 'utf8');
+            link = `${basePath}?file=${slug}`;
+            fileFallbacks.push({
                 index,
                 title: item.title || 'Untitled',
-                length: link.length
+                length: dataLink.length,
+                file: path.relative(process.cwd(), filePath)
             });
+        } else {
+            link = dataLink;
         }
 
         result.push(normalizeOutputItem(item, link));
@@ -112,10 +149,10 @@ function main() {
         fs.writeFileSync(templatesPath, `${JSON.stringify(existing, null, 4)}\n`, 'utf8');
         console.log(`Appended ${result.length} link(s) to: ${templatesPath}`);
     }
-    if (warnings.length > 0) {
-        console.warn(`Warning: ${warnings.length} link(s) exceed ${MAX_URL_LENGTH} characters.`);
-        warnings.forEach(w =>
-            console.warn(`- [${w.index}] ${w.title}: ${w.length}`)
+    if (fileFallbacks.length > 0) {
+        console.log(`Wrote ${fileFallbacks.length} prompt file(s) (data link exceeded ${MAX_URL_LENGTH} chars):`);
+        fileFallbacks.forEach(w =>
+            console.log(`- [${w.index}] ${w.title}: ${w.length} chars → ${w.file}`)
         );
     }
 }

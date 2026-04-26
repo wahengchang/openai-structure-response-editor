@@ -1,0 +1,37 @@
+{
+    "template": "# Building Effective Agents — Anthropic's Playbook\n\nA condensed reference distilled from Anthropic's *Building Effective AI Agents* (https://www.anthropic.com/research/building-effective-agents). Use this when designing or evaluating an agentic system.\n\n## Core distinction\n\n- **Workflow**: LLMs and tools orchestrated through *predefined code paths*.\n- **Agent**: an LLM that *dynamically directs its own process and tool usage* in a loop, based on environmental feedback.\n\n> \"Success in the LLM space isn't about building the most sophisticated system. It's about building the *right* system for your needs.\"\n\nDefault to the simplest thing that works. Single LLM call beats a workflow; a workflow beats an agent. Add complexity only when it demonstrably improves outcomes.\n\n## Foundation: the Augmented LLM\n\nAn LLM enhanced with retrieval, tools, and memory — and the model actively chooses when to query, which tool to call, and what to remember. Every pattern below is built on this. MCP is one implementation option. Tailor each capability to the use case and give the model a clean, well-documented interface.\n\n## Six patterns (increasing complexity)\n\n### 1. Prompt chaining\nDecompose into sequential steps; each LLM call feeds the next. Add programmatic *gates* (validation between steps).\n- **Use when:** the task decomposes cleanly into fixed subtasks; you'll trade latency for accuracy.\n- **Examples:** outline → full doc; copy → translation.\n\n### 2. Routing\nClassify the input, dispatch to a specialized prompt/model.\n- **Use when:** distinct categories need different handling and classification is reliable.\n- **Examples:** support tickets (general/refund/technical); cheap model for easy queries, strong model for hard.\n\n### 3. Parallelization\nRun LLM calls simultaneously, aggregate results.\n- **Sectioning** — split independent subtasks (e.g. moderation in parallel with answering).\n- **Voting** — run the same task N times for confidence (e.g. multiple reviewers checking code for vulns).\n\n### 4. Orchestrator–workers\nA central LLM dynamically breaks down the task, delegates to workers, synthesizes. Subtasks are *not* pre-defined — the orchestrator decides per input.\n- **Use when:** you can't predict the subtasks ahead of time.\n- **Examples:** multi-file code changes; multi-source research.\n\n### 5. Evaluator–optimizer\nOne LLM produces, another critiques; iterate.\n- **Use when:** criteria are clear, feedback is meaningful, iteration measurably improves output.\n- **Examples:** literary translation; deep-search refinement.\n\n### 6. Agents (autonomous loops)\nLLM uses tools, observes ground-truth feedback from the environment, plans, iterates. Pauses for human input at checkpoints.\n- **Use when:** the problem is open-ended; the number of steps can't be predicted; you can't hardcode a path.\n- **Costs:** higher latency, higher $/run, compounding error risk → requires sandboxed testing and guardrails.\n- **Examples:** coding agents (SWE-bench); computer use.\n\n## Decision hierarchy\n\n1. Optimize a **single LLM call** (better retrieval, in-context examples). Start here.\n2. Move to a **workflow** (chain / route / parallel / orchestrator-workers / evaluator-optimizer) for well-defined, predictable tasks.\n3. Move to an **agent** only when flexibility and model-driven decision-making justify the cost.\n\n> \"Agentic systems often trade latency and cost for better task performance, and you should consider when this tradeoff makes sense.\"\n\n## ACI — Agent-Computer Interface\n\nTool design matters as much as prompt design.\n\n> \"Think about how much effort goes into human-computer interfaces (HCI), and plan to invest just as much effort in creating good agent-computer interfaces (ACI).\"\n\n- **Write tool descriptions like docstrings for a junior dev** — examples, edge cases, input formats, clear boundaries.\n- **Pick formats the model has seen.** Give it tokens to \"think\" before it writes itself into a corner.\n- **Iterate** — run many real inputs, watch where the model fumbles, fix the interface.\n- **Poka-yoke** — make wrong usage hard. (SWE-bench example: switching to absolute filepaths eliminated a whole class of errors.)\n\nAnthropic's team often spent *more* time on tool design than on the main prompt.\n\n## Three principles for success\n\n1. **Simplicity** — maintain it deliberately.\n2. **Transparency** — show the agent's planning steps.\n3. **Craft the ACI** — thorough tool docs and iterative testing.\n\n## On frameworks\n\nFrameworks (Claude Agent SDK, Rivet, Vellum, etc.) simplify boilerplate but hide prompts/responses and tempt over-engineering. Start with the API directly — most patterns are a few lines of code. If you adopt a framework, *understand its internals*; wrong assumptions about what's under the hood are a common error source.\n\n---\n\n## Your situation\n\nHelp me design an agentic system. Here's what I'm building:\n\n- **Goal of the system:** {{goal}}\n- **Input → output shape:** {{io_shape}}\n- **Constraints (latency, cost, accuracy floor, safety/risk):** {{constraints}}\n- **Tools or external systems it must interact with:** {{tools}}\n- **Where I am today:** {{current_state}}\n\n> **Before doing any design work, gather missing information.** Any field above marked `ToBeConfirm` (or anything ambiguous) must be resolved first. If you have an `AskUserQuestion` tool available, use it to elicit the actual values from me — do not invent them or proceed with placeholders. If no such tool is available, ask me directly in your reply and wait for answers before continuing. The decision hierarchy below depends on these inputs being real.\n\nWalk me through the decision hierarchy:\n\n1. Could this be solved by a *better single LLM call* (retrieval, in-context examples)? Argue for and against.\n2. If not, which **workflow pattern** fits best — chaining, routing, parallelization, orchestrator-workers, or evaluator-optimizer? Justify against the criteria above and reject the others briefly.\n3. Only if no workflow fits, propose an **agent** — and name specifically what demands autonomy plus how we'll guard against compounding errors.\n\nThen — *before any code* — propose the concrete ACI: the tool surface, parameter formats, error-proofing, and the testing plan. Finally, ask 3-5 clarifying questions to fill remaining gaps (use `AskUserQuestion` if available, otherwise ask in your reply) before going further.\n",
+    "fieldValues": {
+        "goal": "ToBeConfirm",
+        "io_shape": "ToBeConfirm",
+        "constraints": "ToBeConfirm",
+        "tools": "ToBeConfirm",
+        "current_state": "ToBeConfirm"
+    },
+    "fields": [
+        {
+            "name": "goal",
+            "type": "textarea",
+            "default": "ToBeConfirm"
+        },
+        {
+            "name": "io_shape",
+            "type": "textarea",
+            "default": "ToBeConfirm"
+        },
+        {
+            "name": "constraints",
+            "type": "textarea",
+            "default": "ToBeConfirm"
+        },
+        {
+            "name": "tools",
+            "type": "textarea",
+            "default": "ToBeConfirm"
+        },
+        {
+            "name": "current_state",
+            "type": "textarea",
+            "default": "ToBeConfirm"
+        }
+    ]
+}

@@ -79,12 +79,36 @@ export default Vue.defineComponent({
                 this.editorFields = saved.fields;
             }
         },
+        async loadFromFileParam(name) {
+            // Restrict to safe slug characters — no path traversal, no absolute URLs.
+            if (!/^[a-zA-Z0-9_-]+$/.test(name)) {
+                this.showToast('Invalid file name in share link.', 'error');
+                this.loadFromStorageFallback();
+                return;
+            }
+            try {
+                const resp = await fetch(`prompts/${name}.json`);
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                const data = await resp.json();
+                this.editorContent = data.template || '';
+                this.editorFieldValues = data.fieldValues || {};
+                this.editorFields = data.fields || [];
+                this.lastAction = `Loaded "${name}" from file`;
+                this.saveEditorStateToStorage(this.editorContent, this.editorFieldValues, this.editorFields);
+            } catch (e) {
+                this.showToast(`Failed to load template file: ${name}`, 'error');
+                this.loadFromStorageFallback();
+            }
+        },
     },
     mounted() {
-        // Check for ?data= in URL
+        // Precedence: ?file= → ?data= → localStorage
         const params = new URLSearchParams(window.location.search);
+        const fileParam = params.get('file');
         const dataParam = params.get('data');
-        if (dataParam) {
+        if (fileParam) {
+            this.loadFromFileParam(fileParam);
+        } else if (dataParam) {
             import('../utils/share.js').then(utils => {
                 const decoded = utils.decodeEditorState(dataParam);
                 if (!decoded) {
@@ -95,8 +119,6 @@ export default Vue.defineComponent({
                     this.editorFieldValues = decoded.fieldValues || {};
                     this.editorFields = decoded.fields || [];
                     this.lastAction = 'Loaded shared draft from URL';
-                    // this.showToast('Loaded shared draft!', 'success');
-                    // Save to storage for persistence
                     this.saveEditorStateToStorage(this.editorContent, this.editorFieldValues, this.editorFields);
                 }
             });
