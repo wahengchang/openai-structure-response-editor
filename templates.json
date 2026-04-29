@@ -143,5 +143,30 @@
         "title": "Building Effective Agents (Anthropic) — Design Playbook",
         "category": "Pattern Spec/Agent Playbook",
         "link": "/?file=building-effective-agents-anthropic-design-playbook"
+    },
+    {
+        "title": "Template-Driven Topic Writer (Claude + Brainstorm + zh-tw)",
+        "category": "Copywriting",
+        "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7dGVtcGxhdGV9fVxuLS0tLS0tLS0tLS0tLS1cblxuVGFzazogVXNpbmcgdGhlIHRlbXBsYXRlIGFib3ZlIGFzIHRoZSBzdHJ1Y3R1cmFsIGZyYW1ld29yaywgd3JpdGUgY29udGVudCBvbiB0aGUgdG9waWMgXCJ7e3RvcGljfX1cIi5cblxuV29ya2Zsb3cgKGV4ZWN1dGUgaW4gb3JkZXIpOlxuMS4gQkVGT1JFIHdyaXRpbmcsIGNhbGwgYGFza1VzZXJRdWVzdGlvbmAgdG8gYnJhaW5zdG9ybSB3aXRoIHRoZSB1c2VyLiBBc2sgdGFyZ2V0ZWQgcXVlc3Rpb25zIGNvdmVyaW5nOiB0YXJnZXQgYXVkaWVuY2UsIGludGVuZGVkIHRvbmUvc3R5bGUsIHNjb3BlIGFuZCBkZXB0aCwgYW5kIGFueSBtdXN0LWluY2x1ZGUgcG9pbnRzIG9yIGNvbnN0cmFpbnRzLlxuMi4gV2FpdCBmb3IgdGhlIHVzZXIncyByZXNwb25zZXMuXG4zLiBNYXAgdGhlIHJlc3BvbnNlcyBvbnRvIHRoZSB0ZW1wbGF0ZSdzIHNlY3Rpb25zIGFuZCBwcm9kdWNlIHRoZSBmaW5hbCBkcmFmdCwgc3RyaWN0bHkgY29uZm9ybWluZyB0byB0aGUgdGVtcGxhdGUncyBzdHJ1Y3R1cmUuXG5cbk91dHB1dCBsYW5ndWFnZTogVHJhZGl0aW9uYWwgQ2hpbmVzZSAoemgtdHcpLlxuTm90ZTogQ2xhcmlmeWluZyBxdWVzdGlvbnMgbWF5IGJlIGFza2VkIGluIHRoZSB1c2VyJ3Mgd29ya2luZyBsYW5ndWFnZTsgb25seSB0aGUgZmluYWwgZGVsaXZlcmFibGUgbXVzdCBiZSBpbiB6aC10dy4iLCJmaWVsZFZhbHVlcyI6eyJ0ZW1wbGF0ZSI6IltQQVNURSBTVFJVQ1RVUkFMIFRFTVBMQVRFIEhFUkVdIiwidG9waWMiOiJbVE9QSUNdIn0sImZpZWxkcyI6W3sibmFtZSI6InRlbXBsYXRlIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IltQQVNURSBTVFJVQ1RVUkFMIFRFTVBMQVRFIEhFUkVdIn0seyJuYW1lIjoidG9waWMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiW1RPUElDXSJ9XX0%3D"
+    },
+    {
+        "title": "Universal Hook Matrix (5 Opening Angles)",
+        "category": "Copywriting",
+        "link": "/?file=universal-hook-matrix-5-opening-angles"
+    },
+    {
+        "title": "Strict Structural Blueprint Builder",
+        "category": "Copywriting",
+        "link": "/?file=strict-structural-blueprint-builder"
+    },
+    {
+        "title": "Philosophical Newsletter Framework",
+        "category": "Copywriting",
+        "link": "/?file=philosophical-newsletter-framework"
+    },
+    {
+        "title": "Direct Response Copywriting Agent (Harry Dry, zh-tw)",
+        "category": "Copywriting",
+        "link": "/?file=direct-response-copywriting-agent-harry-dry-zh-tw"
     }
 ]

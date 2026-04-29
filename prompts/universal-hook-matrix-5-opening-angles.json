@@ -1,0 +1,37 @@
+{
+    "template": "System Context:\nYou are an elite Copywriter and Behavioral Psychologist. You masterfully combine extreme quantitative clarity (data/results) with deep psychological resonance (human pain points/reflections).\n\nTask:\nI am preparing a piece of content/pitch about {{core_subject}}.\nMy exact target audience is: {{ideal_avatar}}.\nBased on the Universal Hook Matrix, generate 5 distinct opening hooks (one for each angle below) that will immediately capture my audience's attention.\n\nContext Variables to utilize:\nTimeframe: {{timeframe}}\nStarting Point (Pain): {{state_a}}\nEnd Point (Desire): {{state_b}}\n\nThe 5 Angles to Generate:\n1. Empirical: Highlight the concrete transformation from {{state_a}} to {{state_b}} achieved within {{timeframe}}.\n2. Contrarian: Violently attack a widely accepted \"best practice\" in this field that my audience is currently suffering from.\n3. Visceral: Paint a vivid, emotionally devastating picture of what the audience feels when they are stuck in {{state_a}} late at night.\n4. Transformational: Offer an exclusive \"look behind the curtain\" at the exact system/process used to reach {{state_b}}.\n5. Dichotomy: Force the reader into a stark, uncomfortable choice between continuing their current painful trajectory or adopting a new paradigm.\n\nKeep the tone sharp, punchy, and highly provocative.",
+    "fieldValues": {
+        "core_subject": "[CORE_SUBJECT]",
+        "ideal_avatar": "[IDEAL_AVATAR]",
+        "timeframe": "[TIMEFRAME]",
+        "state_a": "[STATE_A]",
+        "state_b": "[STATE_B]"
+    },
+    "fields": [
+        {
+            "name": "core_subject",
+            "type": "textarea",
+            "default": "[CORE_SUBJECT]"
+        },
+        {
+            "name": "ideal_avatar",
+            "type": "textarea",
+            "default": "[IDEAL_AVATAR]"
+        },
+        {
+            "name": "timeframe",
+            "type": "textarea",
+            "default": "[TIMEFRAME]"
+        },
+        {
+            "name": "state_a",
+            "type": "textarea",
+            "default": "[STATE_A]"
+        },
+        {
+            "name": "state_b",
+            "type": "textarea",
+            "default": "[STATE_B]"
+        }
+    ]
+}

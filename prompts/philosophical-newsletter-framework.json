@@ -1,0 +1,37 @@
+{
+    "template": "# The Philosophical Newsletter Framework\n## A Reusable Template for Long-Form Content That Builds Deep Reader Trust\n\n> **How to use this template:** Fill in the three core variables in Part 1, then use the prompts and checklists in Parts 2–6 to draft each section. Delete instruction text (in *italics* or `code blocks`) before publishing.\n\n---\n\n## Part 1: Define Your Variables\n\nFill in these three before writing anything else.\n\n| Variable | Your Input |\n|---|---|\n| `[CORE_PROBLEM]` — The specific friction your reader faces daily | {{core_problem}} |\n| `[DESIRED_OUTCOME]` — The transformation they secretly want | {{desired_outcome}} |\n| `[BROAD_CONCEPT]` — The cross-disciplinary lens that recontextualizes the problem | {{broad_concept}} |\n\n**Working title:** {{working_title}}\n\n**Target audience (one sentence):** {{target_audience}}\n\n**Selection heuristic for `[BROAD_CONCEPT]`:** Choose a concept from a field your audience does *not* typically read in. Freshness comes from the unexpected lens.\n\n---\n\n## Part 2: Draft the Four Blocks\n\n### Block 1 — The Agitation\n*Goal: Reader thinks \"this person is inside my head\" within 30 seconds. Length: 15–25% of piece.*\n\n**Prompts to answer before writing:**\n- What is the exact time, place, and sensory detail of the moment your reader feels {{core_problem}} most acutely?\n- What silent shame do they carry but never say aloud?\n- What lie do they tell themselves to keep going?\n\n**Draft space:**\n\n```\n[Open with a specific scene — time-stamped, sensory, second-person at peak moments only]\n\n\n\n\n[Name the silent shame]\n\n\n\n\n[Land on the unspoken question they ask themselves]\n\n\n```\n\n**Quality check:** ☐ A reader physically reacts (sigh, nod, \"yes, exactly\") before reaching Block 2.\n\n---\n\n### Block 2 — The Paradigm Shift\n*Goal: Transfer the burden from the reader to the system. Length: 25–35% of piece.*\n\n**Prompts to answer before writing:**\n- What does {{broad_concept}} actually claim, in one sentence a non-expert could repeat?\n- How does {{broad_concept}} make {{core_problem}} inevitable rather than personal?\n- What is the explicit \"this is not your fault\" sentence?\n\n**Draft space:**\n\n```\n[Introduce BROAD_CONCEPT with one credible reference or definition]\n\n\n\n\n[Connect it to CORE_PROBLEM — show the structural inevitability]\n\n\n\n\n[Explicit absolution sentence: \"This is not a personal failing. It is ___\"]\n\n\n\n\n[Bridge sentence into Block 3 — hint that there is a way through]\n\n\n```\n\n**Quality check:** ☐ Reader feels a drop in self-blame and a rise in curiosity.\n\n---\n\n### Block 3 — The System\n*Goal: Hand the reader a portable mental model. Length: 35–45% of piece.*\n\n**Prompts to answer before writing:**\n- What are the 3–5 named steps, principles, or layers? (Never more than 5.)\n- What memorable label does each step get?\n- What is one concrete example of the system in action?\n- What is the most likely way this fails, and how do you address it?\n\n**Draft space:**\n\n```\n[Name the system — give it a label or metaphor]\n\n\n\n\nStep / Principle 1: [Memorable label]\n[Explanation]\n\n\nStep / Principle 2: [Memorable label]\n[Explanation]\n\n\nStep / Principle 3: [Memorable label]\n[Explanation]\n\n\n(Optional Step 4 / 5)\n\n\n\n\n[Concrete example of the system in action — your life or a representative case]\n\n\n\n\n[Anticipate the most common failure mode and address it]\n\n\n```\n\n**Quality check:** ☐ Reader could explain the system to a friend over coffee without re-reading the article.\n\n---\n\n### Block 4 — The Reflection\n*Goal: Plant a question that lingers after the tab closes. Length: 5–10% of piece.*\n\n**Prompts to answer before writing:**\n- What single question, if the reader sat with it for a week, would change how they live?\n- Does the question reframe identity, time, or trade-offs?\n- Can it be screenshotted and shared on its own?\n\n**Draft space:**\n\n```\n[One short transition line — not a summary]\n\n\n\n\n[The question — sharp, unanswerable in one sitting]\n\n\n\n\n[Optional: one closing line giving permission to sit with it]\n\n\n```\n\n**Quality check:** ☐ The question could stand alone as a screenshot.\n\n---\n\n## Part 3: Adaptation Guidelines by Profession\n\nAdjust block emphasis based on your field:\n\n- **Coaches and therapists** — Heavier Block 1 and Block 4. System should feel relational, not mechanical.\n- **Technical founders and operators** — Heavier Block 3. Use diagrams or numbered frameworks. Shorter Agitation.\n- **Investors, strategists, analysts** — Block 2 is the centerpiece. Reader pays for the reframe.\n- **Health, fitness, wellness writers** — Make Block 1 viscerally physical. System should be embodiable.\n- **Educators and academics** — Discipline Block 2; keep theory in service of the lived problem.\n\n---\n\n## Part 4: Common Failure Modes to Avoid\n\n- **The Lecture** — Block 2 swallows the piece. Reader feels taught, not seen.\n- **The Listicle in Disguise** — Block 3 becomes generic tips with a philosophical wrapper.\n- **The Vague Ending** — Block 4 closes with motivation instead of a real question.\n- **The Performative Vulnerability** — Block 1 feels staged rather than honest.\n- **The Borrowed Voice** — The piece imitates a writer you admire with no original perspective underneath.\n\n---\n\n## Part 5: Pre-Publish Checklist\n\nBefore sending or publishing, verify all six:\n\n- ☐ The opening scene is specific enough that a stranger could film it.\n- ☐ The reader is explicitly absolved of personal blame at least once.\n- ☐ The system has a memorable name or labels.\n- ☐ The closing question cannot be answered in under five seconds.\n- ☐ The piece sounds like *you*, not like a writer you admire.\n- ☐ Every section earns its length — nothing is padding.\n\n---\n\n## Part 6: Reusability Notes\n\nThis framework is modular:\n\n- Use all four blocks for a full newsletter (1,500–3,000 words).\n- Extract Block 1 alone as a strong social post or thread opener.\n- Extract Block 3 alone as a lead magnet or framework PDF.\n- Use Block 2 + Block 4 as a short-form opinion piece.\n\nThe structure is the scaffold. Your specificity, honesty, and chosen lens are what make each piece yours.\n\n---\n\n*Template version 1.0 — adapt freely.*",
+    "fieldValues": {
+        "core_problem": "[CORE_PROBLEM]",
+        "desired_outcome": "[DESIRED_OUTCOME]",
+        "broad_concept": "[BROAD_CONCEPT]",
+        "working_title": "_______________",
+        "target_audience": "_______________"
+    },
+    "fields": [
+        {
+            "name": "core_problem",
+            "type": "textarea",
+            "default": "[CORE_PROBLEM]"
+        },
+        {
+            "name": "desired_outcome",
+            "type": "textarea",
+            "default": "[DESIRED_OUTCOME]"
+        },
+        {
+            "name": "broad_concept",
+            "type": "textarea",
+            "default": "[BROAD_CONCEPT]"
+        },
+        {
+            "name": "working_title",
+            "type": "textarea",
+            "default": "_______________"
+        },
+        {
+            "name": "target_audience",
+            "type": "textarea",
+            "default": "_______________"
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "template": "Role & Task:\nPlease act as a top-tier {{role}} (writing style should mirror {{style}}). I need you to create a {{content_type}} about {{topic}}. The strict constraint is {{constraint}}.\n\nStrict Structural Blueprint:\nPlease strictly use the following structure to draft this:\n\n{{section_1}}\n\n{{section_2}}\n\n{{section_3}}\n\nTone & Formatting Requirements:\n\nTone: {{tone}}\n\nFormatting: {{formatting}}\n\nFill-in Guide:\n{{fillin_guide}}",
+    "fieldValues": {
+        "role": "Senior Content Strategist",
+        "style": "Seth Godin",
+        "content_type": "blog post",
+        "topic": "[TOPIC]",
+        "constraint": "under 800 words, plain English, no jargon",
+        "section_1": "The Hook/The Problem: Highlight the pain point [PAIN_POINT] in 2-3 sentences.",
+        "section_2": "The Core/The Solution: Provide 3 actionable steps to achieve [GOAL].",
+        "section_3": "The CTA/The Summary: Give the reader a next step based on [NEXT_STEP].",
+        "tone": "Empathetic, authoritative, lightly provocative",
+        "formatting": "Use bullet points, bold key terms, no fluff, high skimmability",
+        "fillin_guide": "[TOPIC]: the subject of the piece — e.g., async programming in Python\n[PAIN_POINT]: the reader's current frustration — e.g., callbacks creating unreadable nested code\n[GOAL]: the outcome the reader wants — e.g., write linear, debuggable async code\n[NEXT_STEP]: the immediate action to take — e.g., refactor one function with async/await today"
+    },
+    "fields": [
+        {
+            "name": "role",
+            "type": "textarea",
+            "default": "Senior Content Strategist"
+        },
+        {
+            "name": "style",
+            "type": "textarea",
+            "default": "Seth Godin"
+        },
+        {
+            "name": "content_type",
+            "type": "textarea",
+            "default": "blog post"
+        },
+        {
+            "name": "topic",
+            "type": "textarea",
+            "default": "[TOPIC]"
+        },
+        {
+            "name": "constraint",
+            "type": "textarea",
+            "default": "under 800 words, plain English, no jargon"
+        },
+        {
+            "name": "section_1",
+            "type": "textarea",
+            "default": "The Hook/The Problem: Highlight the pain point [PAIN_POINT] in 2-3 sentences."
+        },
+        {
+            "name": "section_2",
+            "type": "textarea",
+            "default": "The Core/The Solution: Provide 3 actionable steps to achieve [GOAL]."
+        },
+        {
+            "name": "section_3",
+            "type": "textarea",
+            "default": "The CTA/The Summary: Give the reader a next step based on [NEXT_STEP]."
+        },
+        {
+            "name": "tone",
+            "type": "textarea",
+            "default": "Empathetic, authoritative, lightly provocative"
+        },
+        {
+            "name": "formatting",
+            "type": "textarea",
+            "default": "Use bullet points, bold key terms, no fluff, high skimmability"
+        },
+        {
+            "name": "fillin_guide",
+            "type": "textarea",
+            "default": "[TOPIC]: the subject of the piece — e.g., async programming in Python\n[PAIN_POINT]: the reader's current frustration — e.g., callbacks creating unreadable nested code\n[GOAL]: the outcome the reader wants — e.g., write linear, debuggable async code\n[NEXT_STEP]: the immediate action to take — e.g., refactor one function with async/await today"
+        }
+    ]
+}
