@@ -3,7 +3,7 @@
     "fieldValues": {
         "role": "Senior Content Strategist",
         "style": "Seth Godin",
-        "content_type": "blog post",
+        "content_type": "Headline And SubHeadline of Ads",
         "topic": "[TOPIC]",
         "constraint": "under 800 words, plain English, no jargon",
         "section_1": "The Hook/The Problem: Highlight the pain point [PAIN_POINT] in 2-3 sentences.",
@@ -27,7 +27,7 @@
         {
             "name": "content_type",
             "type": "textarea",
-            "default": "blog post"
+            "default": "Headline And SubHeadline of Ads"
         },
         {
             "name": "topic",

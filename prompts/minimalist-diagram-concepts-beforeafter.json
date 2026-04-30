@@ -1,0 +1,25 @@
+{
+    "template": "Topic: {{topic}}\nCore Insight: {{core_insight}}\nVisual Style: {{style}}\n\nPlease act as a minimalist information designer. I need you to come up with three visual diagram concepts that use only simple geometric shapes (circles, squares, lines, arrows) to express a core idea.\n\nFor each concept, provide:\n\n1. Left / Top Visual (Before / Amateur)\nRepresents the common mistake, starting point, or flawed state.\n\nDescribe what the shapes look like\nInclude a short label (1–2 words)\n\n2. Right / Bottom Visual (After / Pro)\nRepresents the ideal state, improved system, or desired outcome.\n\nDescribe what the shapes look like\nInclude a short label\n\n3. AI Image Generation Prompt\nProvide an English prompt that can be directly used in tools like Midjourney, DALL·E, or Gemini to generate the diagram.\n\nInclude style keywords: minimalist line art, flat design, {{style}}, simple vector diagram\n\nFill-in Guide:\n\n[TOPIC]: The subject of the content\n(e.g., [TOPIC])\n[CORE_INSIGHT]: The key takeaway or conclusion\n(e.g., Doing three things at once cancels progress; focusing on one leads to breakthroughs.)",
+    "fieldValues": {
+        "topic": "[TOPIC]",
+        "core_insight": "[CORE]",
+        "style": "dark background, white shapes"
+    },
+    "fields": [
+        {
+            "name": "topic",
+            "type": "textarea",
+            "default": "[TOPIC]"
+        },
+        {
+            "name": "core_insight",
+            "type": "textarea",
+            "default": "[CORE]"
+        },
+        {
+            "name": "style",
+            "type": "textarea",
+            "default": "dark background, white shapes"
+        }
+    ]
+}

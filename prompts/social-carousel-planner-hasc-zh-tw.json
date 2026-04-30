@@ -1,0 +1,31 @@
+{
+    "template": "你現在是一位頂尖的社群內容行銷專家，深諳 Instagram 與 LinkedIn 的演算法與讀者心理學。\n\n我要製作一組 {{slide_count}} 頁的社群輪播圖（Carousel）。\n\n【基本設定】\n\n\n\n目標受眾 (Target Audience)：{{audience}}\n\n核心主題 (Topic)：{{topic}}\n\n溝通語氣 (Tone of Voice)：{{tone}}\n\n【任務要求】\n\n請幫我規劃每一頁的「大標題」、「副標題（說明文字）」與「視覺與排版建議」。請嚴格遵守以下 H.A.S.C. 結構節奏，確保讀者會一路滑到最後一張：\n\n\n\nSlide 1 - Hook (攔截)： 絕對不給答案。只點出受眾最痛的痛點，或提出一個最反直覺的宣告。\n\nSlide 2 - Agitation (共鳴)： 放大這個痛點，列舉具體情境，讓讀者覺得「這就是在說我」。\n\nSlide 3 到倒數第 2 頁 - The System (解方)： 給出具體的步驟、心法或框架。原則：每頁只講一個核心觀點。 內容要具體可行。\n\n最後一頁 - CTA (行動)： 給予單一且明確的互動引導（例如：留言索取資源、儲存貼文、訂閱電子報）。\n\n請以[繁體中文]輸出，並採用清晰的條列式排版。",
+    "fieldValues": {
+        "slide_count": "8",
+        "audience": "初階前端工程師",
+        "topic": "為什麼你看懂了 React 官方文件，卻寫不出專案？",
+        "tone": "一針見血且專業"
+    },
+    "fields": [
+        {
+            "name": "slide_count",
+            "type": "textarea",
+            "default": "8"
+        },
+        {
+            "name": "audience",
+            "type": "textarea",
+            "default": "初階前端工程師"
+        },
+        {
+            "name": "topic",
+            "type": "textarea",
+            "default": "為什麼你看懂了 React 官方文件，卻寫不出專案？"
+        },
+        {
+            "name": "tone",
+            "type": "textarea",
+            "default": "一針見血且專業"
+        }
+    ]
+}

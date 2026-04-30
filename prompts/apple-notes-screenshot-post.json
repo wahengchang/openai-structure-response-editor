@@ -1,0 +1,13 @@
+{
+    "template": "Transform the following concept into copy designed to look like an \n\"iPhone Apple Notes screenshot\" or a \"text-only social media post\" \n(the kind that goes viral on X/Twitter, Threads, or Instagram).\n\nCONCEPT: {{concept}}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nWRITING RULES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n1. TITLE\n   • ALL CAPS or wrapped in \"quotation marks\"\n   • Maximum 10 words\n   • Must stop the scroll — punchy, contrarian, or curiosity-inducing\n\n2. BULLET POINTS\n   • Use 3 to 5 bullets only\n   • Each bullet = one sharp idea, not a sentence\n   • Read like a master's private notebook — aphoristic, not explanatory\n\n3. VISUAL RHYTHM\n   • Keep every line extremely short (ideally under 10 words)\n   • Heavy white space between lines\n   • NO paragraphs. NO filler words.\n   • Write like you're carving stone, not typing prose\n\n4. CLOSING LINE\n   • One final standalone sentence\n   • Must hit like a punchline or a verdict\n   • Should feel quotable on its own\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTONE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nConfident. Quiet. A little philosophical.\nLike someone who has nothing to prove.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nOUTPUT FORMAT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nImage of screenshot.",
+    "fieldValues": {
+        "concept": "[INSERT YOUR IDEA HERE]"
+    },
+    "fields": [
+        {
+            "name": "concept",
+            "type": "textarea",
+            "default": "[INSERT YOUR IDEA HERE]"
+        }
+    ]
+}
