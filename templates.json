@@ -20,6 +20,11 @@
         "category": "Prompt Rewrite"
     },
     {
+        "title": "Tiered Pattern Spec Architect",
+        "category": "Prompt Rewrite",
+        "link": "/?file=tiered-pattern-spec-architect"
+    },
+    {
         "title": "Differences and Similarities",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6IlxuQW5hbHl6ZSB0aGUge3tJTlBVVH19IHRob3JvdWdobHkgdG8gYWNoaWV2ZSBhIGRlZXAgdW5kZXJzdGFuZGluZyBvZiB0aGVpciBjb250ZW50LiBcblxuMS4gbWFrZSBhIGhpZ2hsZXZlbCBhbmFseXNlXG4yLklkZW50aWZ5IGFuZCBzdW1tYXJpemUgdGhlaXIga2V5IHNpbWlsYXJpdGllcyBhbmQgZGlmZmVyZW5jZXMsIHByZXNlbnRpbmcgYSBjb25jaXNlIGFuZCBhY2N1cmF0ZSBjb21wYXJhdGl2ZSBhc3Nlc3NtZW50LlxuMy5BdCB0aGUgZW5kIGNyZWF0ZSAyIHRhYmxlLCBhIFRhYmxlIGluIENvbW1vbiBhbmQgYSBUYWJsZSBpbiBEaWZmZXJlbmNlcyIsImZpZWxkVmFsdWVzIjp7InJvbGUiOiJZb3UifSwiZmllbGRzIjpbeyJuYW1lIjoiSU5QVVQiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiMiB1cGxvYWRlZCBpbWFnZXMifV19",
         "category": "Seeking Answer"

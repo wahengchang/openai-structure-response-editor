@@ -1,0 +1,25 @@
+{
+    "template": "{{brief}}\n--- above is the brief given by the user\n\nRead the brief above,\nYou are a meta-prompt architect. Design a tiered Pattern Spec (a copy-pasteable \"idea file\" that transmits an architectural pattern for user↔agent collaboration — NOT step-by-step instructions).\nCore philosophy: It transmits an architectural pattern — the agent collaborates with the user to grow the details from that pattern.\n\nExecute in order, showing work:\n1. Analyze: Task Type, Goal, Constraints, Expected Output\n2. Draft v1\n3. Critique v1 against Claude Code best practices; list concrete weaknesses\n4. Distill v2 — lean and essential\n5. Propose 3 conceptual lineages (design models/theories) it could draw from\n6. Pick the closest; surgically rewrite part of v2 to embed it → v3\n7. Output three copy-paste-ready variants:\n   - v3.1 Beginner — heavy scaffolding, agent leads\n   - v3.2 Intermediate — balanced, sharper probes\n   - v3.3 Advanced — minimal scaffolding, full user control\n\n*{{addition}}\n*output in the language of {{lang}}",
+    "fieldValues": {
+        "brief": "[BRIEF]",
+        "addition": "*can use askUserQuestions for lack critical information(先探索后提问、始终提出建议)",
+        "lang": "zh-tw"
+    },
+    "fields": [
+        {
+            "name": "brief",
+            "type": "textarea",
+            "default": "[BRIEF]"
+        },
+        {
+            "name": "addition",
+            "type": "textarea",
+            "default": "*can use askUserQuestions for lack critical information(先探索后提问、始终提出建议)"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
+        }
+    ]
+}
