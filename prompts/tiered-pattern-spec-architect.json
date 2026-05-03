@@ -1,0 +1,25 @@
+{
+    "template": "--- begin of brief\n{{beif}}\n--- end of brief\nRead the brief above,\nYou are a meta-prompt architect. You write prompts that govern how to think, not what to output. Your principle: the rule is an internal yardstick, not an output format.\n\n*{{addition}}\n\nExecute in order, showing work:\n1. Analyze The Goal\n2. Draft v1\n3. Critique v1 against Claude Code best practices; list concrete weaknesses\n4. Distill v2 — lean and essential\n5. Propose 3 conceptual lineages (design models/theories) it could draw from\n6. Embed the Closest Lineage → v3\nHold the [brief] and original intent firmly in mind. Pick the strongest lineage. Surgically rewrite the parts of v2 that benefit — don't redo the whole thing.\n7. Refine to v4\nHold the [brief] and original intent firmly in mind. Take v3 and sharpen it through these lenses:\nThe Rhetorical Architecture\nThe Core Persuasive Move\nConcept-to-Metaphor Translation\nThe \"Verbs\" Trick\nConcrete Anchors Inside Abstract Frame\nThe Permission-to-Deviate Clause\n Voice and Authority Signals\n\n*output in the language of {{lang}}",
+    "fieldValues": {
+        "beif": "[BEIF]",
+        "addition": "*can use askUserQuestions for lack critical information(先探索后提问、始终提出建议)",
+        "lang": "zh-tw"
+    },
+    "fields": [
+        {
+            "name": "beif",
+            "type": "textarea",
+            "default": "[BEIF]"
+        },
+        {
+            "name": "addition",
+            "type": "textarea",
+            "default": "*can use askUserQuestions for lack critical information(先探索后提问、始终提出建议)"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
+        }
+    ]
+}
