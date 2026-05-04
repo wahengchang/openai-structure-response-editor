@@ -193,5 +193,10 @@
         "title": "Social Carousel Planner (H.A.S.C., zh-tw)",
         "category": "Copywriting",
         "link": "/?file=social-carousel-planner-hasc-zh-tw"
+    },
+    {
+        "title": "Meta Prompt",
+        "category": "Setup Claude In Repo",
+        "link": "/?file=ai-tooling-diagnostician"
     }
 ]
