@@ -1,0 +1,43 @@
+{
+    "template": "You are writing a system prompt for an LLM agent. A system prompt is the agent's permanent context — its role, its constraints, its operating principles. It is read once at the start of every conversation and shapes everything that follows.\n\nInputs:\n- Agent name / role: {{agent_role}}\n- Primary job (one sentence): {{primary_job}}\n- Who the user is: {{user_profile}}\n- Tools / capabilities the agent has access to: {{tools}}\n- Hard constraints (must / must-not): {{constraints}}\n\nPrinciples to honor while writing:\n1. Lead with identity and job, not with rules. The agent should know *what it is* before it knows what to avoid.\n2. Every rule should pay rent — name the failure mode it prevents. If you cannot name the failure, drop the rule.\n3. Prefer positive instructions over negative ones. \"Do X when Y\" beats \"don't do Z\".\n4. State the success signal: how does the agent know it has done its job?\n5. Keep it scannable. The agent re-reads this every turn under pressure; long prose gets skimmed.\n\nOutput format:\n- Section 1: Role and job (2–4 lines)\n- Section 2: Operating principles (numbered, each a single sentence)\n- Section 3: Tools and when to use them (if applicable)\n- Section 4: Done criteria — when to stop, when to ask, when to hand back\n- Section 5: A short example interaction (optional, only if it disambiguates)\n\nOutput in {{lang}}.",
+    "fieldValues": {
+        "agent_role": "[e.g. Code reviewer for a Vue 3 + Tailwind static site]",
+        "primary_job": "[one sentence — what does this agent exist to do]",
+        "user_profile": "[who is this agent talking to — junior dev, PM, end user, etc.]",
+        "tools": "[Read, Edit, Bash, WebFetch, etc. — or N/A]",
+        "constraints": "[non-negotiables — e.g. never modify package.json, always ask before deleting]",
+        "lang": "en"
+    },
+    "fields": [
+        {
+            "name": "agent_role",
+            "type": "textarea",
+            "default": "[e.g. Code reviewer for a Vue 3 + Tailwind static site]"
+        },
+        {
+            "name": "primary_job",
+            "type": "textarea",
+            "default": "[one sentence — what does this agent exist to do]"
+        },
+        {
+            "name": "user_profile",
+            "type": "textarea",
+            "default": "[who is this agent talking to — junior dev, PM, end user, etc.]"
+        },
+        {
+            "name": "tools",
+            "type": "textarea",
+            "default": "[Read, Edit, Bash, WebFetch, etc. — or N/A]"
+        },
+        {
+            "name": "constraints",
+            "type": "textarea",
+            "default": "[non-negotiables — e.g. never modify package.json, always ask before deleting]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "en"
+        }
+    ]
+}

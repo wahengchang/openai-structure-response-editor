@@ -1,0 +1,25 @@
+{
+    "template": "You are auditing an existing Claude Code workflow. Your job is to find the parts that are wasting time, producing wrong output, or quietly skipped.\n\nWorkflow under review:\n{{workflow_description}}\n\nRecent runs / examples (optional):\n{{recent_runs}}\n\nProcess:\n1. Walk the workflow step by step. For each step, answer: does this step move the work forward, or is it ceremony? Be willing to say \"delete this step\".\n2. Identify steps where Claude (or the human) is most likely to fake completion — i.e. mark done without actually verifying the success signal. Name the exact failure mode.\n3. Find the missing steps: things that *should* happen but currently rely on memory or luck.\n4. Check the workflow against the repo's actual conventions. Where does the workflow drift from how the codebase really operates?\n5. Score each step: keep / rewrite / delete / merge.\n\nOutput format:\n- Verdict in one sentence (is this workflow healthy, struggling, or broken)\n- Step-by-step audit table: step → verdict → reason\n- Top 3 highest-leverage changes, ranked\n- Anything you cannot tell without more info — list the exact question to ask\n\nBe specific. \"Improve error handling\" is not feedback. \"Step 4 silently swallows fetch failures because it does not check response.ok\" is.\n\nOutput in {{lang}}.",
+    "fieldValues": {
+        "workflow_description": "[paste the workflow definition, slash command, or describe the process]",
+        "recent_runs": "[optional: paste 1-2 recent runs or transcripts]",
+        "lang": "en"
+    },
+    "fields": [
+        {
+            "name": "workflow_description",
+            "type": "textarea",
+            "default": "[paste the workflow definition, slash command, or describe the process]"
+        },
+        {
+            "name": "recent_runs",
+            "type": "textarea",
+            "default": "[optional: paste 1-2 recent runs or transcripts]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "en"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node js/cli/generate-share-links.mjs _new-prompt.json)",
+      "Bash(rm _new-prompt.json)"
+    ]
+  }
+}

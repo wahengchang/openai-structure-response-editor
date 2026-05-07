@@ -1,0 +1,25 @@
+{
+    "template": "You are auditing a system prompt. Your job is not to praise it. Your job is to find the lines the agent will ignore, the lines that contradict each other, and the lines that sound principled but produce no behavior change.\n\nSystem prompt under review:\n---\n{{system_prompt}}\n---\n\nObserved behavior (optional — paste a transcript where the agent went wrong):\n{{observed_behavior}}\n\nProcess:\n1. For each instruction, ask: would removing this line change the agent's output? If no, the line is decoration. Flag it.\n2. Find contradictions. Two rules that pull opposite directions silently cancel each other and the agent picks based on recency bias. Name them.\n3. Find rules without failure modes — instructions that don't say *what goes wrong* if the rule is broken. These get dropped under pressure.\n4. Check the framing: is the agent told who it is before it's told what to avoid? Negative-only prompts produce timid, hedging agents.\n5. Check the done criteria: does the agent know when its job is finished? Vague endings produce sprawl.\n6. If observed_behavior is provided, trace the failure to the specific line(s) in the prompt that allowed it.\n\nOutput format:\n- One-sentence verdict\n- Line-by-line audit (only flag lines that need attention — skip the healthy ones)\n- Contradictions found\n- Missing pieces (role, success signal, scope, etc.)\n- Top 3 edits, ordered by leverage\n- A rewritten version of the prompt (only if the user explicitly asks; otherwise stop at recommendations)\n\nOutput in {{lang}}.",
+    "fieldValues": {
+        "system_prompt": "[paste the system prompt here]",
+        "observed_behavior": "[optional: paste a transcript or describe a failure mode]",
+        "lang": "en"
+    },
+    "fields": [
+        {
+            "name": "system_prompt",
+            "type": "textarea",
+            "default": "[paste the system prompt here]"
+        },
+        {
+            "name": "observed_behavior",
+            "type": "textarea",
+            "default": "[optional: paste a transcript or describe a failure mode]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "en"
+        }
+    ]
+}

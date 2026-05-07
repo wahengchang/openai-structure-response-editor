@@ -1,0 +1,37 @@
+{
+    "template": "You are designing a new Claude Code workflow for this repo. A workflow is a repeatable sequence of steps a developer (or Claude) follows to accomplish a recurring task — e.g. \"add a new API endpoint\", \"ship a hotfix\", \"onboard a new template\".\n\nGoal: produce a workflow definition that a fresh Claude (no prior context) could follow on day one.\n\nInputs:\n- Workflow name: {{workflow_name}}\n- What problem it solves: {{problem}}\n- Who runs it (human, Claude, or both): {{actor}}\n- Constraints / non-negotiables for this repo: {{constraints}}\n\nProcess:\n1. Read the repo enough to understand the existing conventions this workflow must respect. Do not invent steps that contradict what the codebase already does.\n2. Draft the workflow as a numbered list of steps. Each step names: the action, the tool/file involved, and the success signal.\n3. Identify the 1–3 places this workflow is most likely to go wrong, and add a guardrail step for each.\n4. Write a one-line summary the user can paste into a slash command description.\n5. List the artifacts the workflow produces and where they live.\n\nOutput format:\n- Workflow name + one-line summary\n- Steps (numbered)\n- Guardrails\n- Artifacts produced\n- Open questions for the human (if any)\n\nOutput in {{lang}}.",
+    "fieldValues": {
+        "workflow_name": "[e.g. Add a new prompt template]",
+        "problem": "[what recurring task is this automating]",
+        "actor": "human + Claude",
+        "constraints": "[e.g. must use existing share-core encoder, no new deps]",
+        "lang": "en"
+    },
+    "fields": [
+        {
+            "name": "workflow_name",
+            "type": "textarea",
+            "default": "[e.g. Add a new prompt template]"
+        },
+        {
+            "name": "problem",
+            "type": "textarea",
+            "default": "[what recurring task is this automating]"
+        },
+        {
+            "name": "actor",
+            "type": "textarea",
+            "default": "human + Claude"
+        },
+        {
+            "name": "constraints",
+            "type": "textarea",
+            "default": "[e.g. must use existing share-core encoder, no new deps]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "en"
+        }
+    ]
+}

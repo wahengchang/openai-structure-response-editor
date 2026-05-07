@@ -40,14 +40,34 @@
         "category": "Seeking Answer"
     },
     {
-        "title": "Setup Planning For Report",
-        "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7YmFja2dyb3VuZH19XG4tLS1cbkFjdCBhcyBhbiB7e1JPTEV9fSBleHBlcnQgYW5kIGRyYWZ0IGEge3tET0N9fSBmb3IgYW4gdXBjb21pbmcgZG9jdW1lbnQuIFxuXG5GaXJzdCwgcHJvdmlkZSBhIGhpZ2gtbGV2ZWwgYW5hbHlzaXMgb2YgdGhlIHJlcXVpcmVtZW50cyBhbmQgb2JqZWN0aXZlcy4gXG5cbk5leHQsIGRldmVsb3AgYSBzdHJ1Y3R1cmVkLCBzdGVwLWJ5LXN0ZXAgYWN0aW9uIHBsYW4gZGV0YWlsaW5nIGhvdyB0aGUgZG9jdW1lbnQgd2lsbCBiZSBleGVjdXRlZC4gVXRpbGl6ZSBBU0NJSSBkaWFncmFtcyB3aGVyZSBhcHByb3ByaWF0ZSB0byB2aXN1YWxseSBtYXAgb3V0IHdvcmtmbG93cyBvciBzdHJ1Y3R1cmFsIGNvbmNlcHRzLlxuXG4qcmVwbHkgaW4gemgtY24gXG4iLCJmaWVsZFZhbHVlcyI6eyJiYWNrZ3JvdW5kIjoiSU5TRVJUIEJBQ0tHUk9VTkQiLCJST0xFIjoiU0VPIn0sImZpZWxkcyI6W3sibmFtZSI6ImJhY2tncm91bmQiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiSU5TRVJUIEJBQ0tHUk9VTkQifSx7Im5hbWUiOiJST0xFIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IlNFTyJ9LHsibmFtZSI6IkRPQyIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJzdHJhdGVnaWMgcGxhbiJ9XX0%3D",
-        "category": "Report Analyse/Summary"
+        "title": "AI Tooling Diagnostician",
+        "category": "Meta Prompt",
+        "link": "/?file=ai-tooling-diagnostician"
     },
     {
-        "title": "MCP Research For Report",
-        "link": "/?data=eyJ0ZW1wbGF0ZSI6IkluaXRpYXRlIHByb2plY3QgZG9jdW1lbnRhdGlvbiBieSBkcmFmdGluZzpcbnt7c2VjdGlvbjF9fVxud2l0aGluIHt7ZmluYWxEb2N9fS4gXG5cblNpbXVsdGFuZW91c2x5LCBlc3RhYmxpc2ggYSBkZWRpY2F0ZWQgcmVzZWFyY2ggZG9jdW1lbnQgZm9jdXNpbmcgb24gdGhlIGNvbXBldGl0aXZlIGxhbmRzY2FwZS4gXG5cblV0aWxpemUgTUNQIENocm9tZS1EZXYtVG9vbCAgdG8gdXNlIHt7d2ViVG9vbH19IHRvIHdvcmsgb24gdGhlIHNlY3Rpb25zIGluIHt7ZmluYWxEb2N9fTpcbnt7cmVzZWFyY2hBY3Rpb259fS4gIiwiZmllbGRWYWx1ZXMiOnsiYmFja2dyb3VuZCI6IklOU0VSVCBCQUNLR1JPVU5EIiwiUk9MRSI6IlNFTyJ9LCJmaWVsZHMiOlt7Im5hbWUiOiJzZWN0aW9uMSIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiIjIyAxLiDpobnnm67og4zmma%2FkuI7nm67moIcifSx7Im5hbWUiOiJmaW5hbERvYyIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJmaW5hbC5tZCJ9LHsibmFtZSI6IndlYlRvb2wiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoicGxhdGZvcm1zIChBaHJlZnMsIFNFTXJ1c2gpIn0seyJuYW1lIjoicmVzZWFyY2hBY3Rpb24iLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiICMjIDIuIOW4guWcuuS4juernuWTgeagvOWxgCAjIyAzLiDlhbPplK7or43mnLrkvJrliIbmnpAgIyMgNC4g6aG16Z2i5py65Lya5LiO5YaF5a65562W55WlICMjIDUuIOWklumTvuS4juadg%2BWogeW7uuiuvuetlueVpSJ9XX0%3D",
-        "category": "Report Analyse/Summary"
+        "title": "Workflow Creation",
+        "category": "Meta Prompt",
+        "link": "/?file=workflow-creation"
+    },
+    {
+        "title": "Workflow Audit",
+        "category": "Meta Prompt",
+        "link": "/?file=workflow-audit"
+    },
+    {
+        "title": "System Prompt Init",
+        "category": "Meta Prompt",
+        "link": "/?file=system-prompt-creation"
+    },
+    {
+        "title": "System Prompt Audit",
+        "category": "Meta Prompt",
+        "link": "/?file=system-prompt-audit"
+    },
+    {
+        "title": "System, Skills, Subagents and Tools Setup",
+        "category": "Meta Prompt",
+        "link": "/?file=system-skills-subagents-and-tools-setup"
     },
     {
         "title": "YouTube Video Deep Analyst (ZH-TW)",
@@ -130,19 +150,9 @@
         "link": "/?data=eyJ0ZW1wbGF0ZSI6IllvdSBhcmUgYW4gZXhwZXJ0IEFJIHRvb2xzIGFuYWx5c3QuIEV4dHJhY3QgZXZlcnkgcmV1c2FibGUgYXNzZXQgZnJvbSBhIGdpdmVuIEFJL2F1dG9tYXRpb24gdmlkZW8gb3IgdHJhbnNjcmlwdC5cblNURVAgMCDigJQgU2lsZW50IFJlY29uIChuZXZlciBzaG93bilcbkFzc2VzcyBjb250ZW50IHR5cGUsIHBsYXRmb3JtLCBhbmQgYXNzZXQgdHlwZXMgdG8gZGV0ZXJtaW5lIHdoaWNoIFN0ZXAgMyBibG9ja3MgYXBwZWFyLlxuXG5TVEVQIDEg4oCUIFNuYXBzaG90XG5UeXBlICYgQXVkaWVuY2UgwrcgQ29yZSBUaGVzaXMgwrcgQXNzZXRzIERldGVjdGVkIMK3IFRpbWVzdGFtcHMgW01NOlNTXSDDlzXigJM4XG5cblNURVAgMiDigJQgQ29yZSBDb25jZXB0cyAoMTAw4oCTMTUwIHdvcmRzKVxuUHJvYmxlbSDCtyBUZWNobmlxdWVzIMK3IEZyYW1ld29ya3MgwrcgVG9vbHMvQVBJc1xuXG5TVEVQIDMg4oCUIEV4dHJhY3RlZCBBc3NldHMgKG9ubHkgd2hhdCBhcHBlYXJzOyByZXBlYXQgYXMgbmVlZGVkKVxuVE9PTCBTRVRVUCBbTl0gW01NOlNTXSDigJQgV2hhdCBpdCBkb2VzIMK3IFBsYXRmb3JtL0Nvc3QgwrcgU3RlcHNcbldPUktGTE9XIFtOXSBbTU06U1NdIOKAlCBVc2UgY2FzZSDCtyBBIOKGkiBCIOKGkiBDXG5QUk9NUFQgW05dIFtNTTpTU10g4oCUIFVzZSBjYXNlIMK3IFRlbXBsYXRlIMK3IFtQbGFjZWhvbGRlcnNdXG5DSEVDS0xJU1QgW05dIFtNTTpTU10g4oCUIEl0ZW1zXG5TRVRUSU5HUyBbTl0gW01NOlNTXSDigJQgVG9vbCDCtyBLZXkgY29uZmlnc1xuUkVTT1VSQ0VTIFtOXSBbTU06U1NdIOKAlCBOYW1lIHwgVHlwZSB8IFVSTCB8IENvc3RcblxuU1RFUCA0IOKAlCBDcml0aWNhbCBMZW5zXG5Xb3JrcyBXZWxsIMK3IEdhcHMgwrcgRXZpZGVuY2U6IGRlbW8vYW5lY2RvdGFsL3BlZXItcmV2aWV3ZWQgwrcgQWx0ZXJuYXRpdmVzIMK3IFVzYWJpbGl0eTogaW1tZWRpYXRlL2FkYXB0L3JlZmVyZW5jZVxuXG5TVEVQIDUg4oCUIE1lbW9yeSBIb29rc1xuTW5lbW9uaWMgwrcgQW5jaG9yIEltYWdlIMK3IFJldHJpZXZhbCBRXG5cblNURVAgNiDigJQgQXNzZXQgSW5kZXhcbiNUeXBlTmFtZVBsYXRmb3JtUGxhY2Vob2xkZXJzVGltZXN0YW1wXG5cblNURVAgNyDigJQgVmVyZGljdFxuQXNzZXQgRGVuc2l0eTogWC8xMCDCtyBCZXN0IEFzc2V0IMK3IElkZWFsIEZvciDCtyBUYWtlYXdheVxuXG4tLS0tLS0tX1xudXJsOiB7e3VybH19XG5vdXRwdXQgbGFuZ3VhZ2U6e3tsYW5nfX0iLCJmaWVsZFZhbHVlcyI6eyJ1cmwiOiJbdXJsXSIsImxhbmciOiJ6aC1UVyJ9LCJmaWVsZHMiOlt7Im5hbWUiOiJ1cmwiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiW3VybF0ifSx7Im5hbWUiOiJsYW5nIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6InpoLVRXIn1dfQ%3D%3D"
     },
     {
-        "title": "LLM Wiki: Personal Knowledge Base Pattern (Karpathy)",
-        "category": "Pattern Spec/Agent Playbook",
-        "link": "/?file=llm-wiki-personal-knowledge-base-pattern-karpathy"
-    },
-    {
         "title": "LLM Wiki: Personalized Setup (Karpathy)",
         "category": "Ideas",
         "link": "/?file=llm-wiki-personalized-setup-karpathy"
-    },
-    {
-        "title": "Building Effective Agents (Anthropic) — Design Playbook",
-        "category": "Pattern Spec/Agent Playbook",
-        "link": "/?file=building-effective-agents-anthropic-design-playbook"
     },
     {
         "title": "Template-Driven Topic Writer (Claude + Brainstorm + zh-tw)",
@@ -193,10 +203,5 @@
         "title": "Social Carousel Planner (H.A.S.C., zh-tw)",
         "category": "Copywriting",
         "link": "/?file=social-carousel-planner-hasc-zh-tw"
-    },
-    {
-        "title": "Meta Prompt",
-        "category": "Setup Claude In Repo",
-        "link": "/?file=ai-tooling-diagnostician"
     }
 ]

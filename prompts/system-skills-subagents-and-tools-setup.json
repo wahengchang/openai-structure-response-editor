@@ -1,0 +1,37 @@
+{
+    "template": "You are setting up the Claude Code configuration for this repo: the system prompt (CLAUDE.md), the skills, the subagents, and the tool permissions. Treat these as one system, not four independent decisions — they share context and budget.\n\nInputs:\n- Repo purpose (one sentence): {{repo_purpose}}\n- Primary recurring tasks Claude will run here: {{recurring_tasks}}\n- Who runs Claude in this repo (solo dev, team, end users): {{operators}}\n- Existing setup, if any (CLAUDE.md, .claude/settings.json, agents): {{existing_setup}}\n\nDesign principles:\n1. CLAUDE.md is for things derivable only from the human — conventions, decisions, taste. It is *not* for things the codebase already states.\n2. A skill earns its slot only if the trigger condition is unambiguous and the skill produces a concrete artifact. Vague skills become noise.\n3. A subagent earns its slot only if the work either (a) protects the main context window from a large result, or (b) genuinely parallelizes. Do not split work just to look organized.\n4. Tool permissions: allow the read-only tools, gate the destructive ones. \"Auto-approve everything\" is not a permission model.\n5. Every artifact (CLAUDE.md line, skill, subagent, hook) must name the exact mistake it prevents. If you cannot name the mistake, do not add the artifact.\n\nProcess:\n1. Read the repo until your guess about it stops moving.\n2. List the 3–5 recurring tasks Claude will actually run. Reject hypothetical ones.\n3. For each recurring task, decide: CLAUDE.md note, skill, subagent, hook, or nothing? Justify each choice in one line.\n4. Draft the CLAUDE.md skeleton, the skill list (name + trigger + output), the subagent list (name + when to spawn + what it returns), and the settings.json permission allowlist.\n5. Name what you intentionally chose *not* to add, and why.\n\nOutput format:\n- Repo read: 3–5 hypotheses about how this project actually operates\n- Recurring tasks (3–5)\n- Routing table: task → artifact type → justification\n- Drafts: CLAUDE.md outline / skills / subagents / settings.json permissions\n- Deliberate omissions\n- Open questions for the human\n\nOutput in {{lang}}.",
+    "fieldValues": {
+        "repo_purpose": "[one sentence — what does this repo do]",
+        "recurring_tasks": "[list the 3-5 things you do here over and over]",
+        "operators": "[solo, team of N, public users, etc.]",
+        "existing_setup": "[paste current CLAUDE.md / settings.json / agents, or write 'none']",
+        "lang": "en"
+    },
+    "fields": [
+        {
+            "name": "repo_purpose",
+            "type": "textarea",
+            "default": "[one sentence — what does this repo do]"
+        },
+        {
+            "name": "recurring_tasks",
+            "type": "textarea",
+            "default": "[list the 3-5 things you do here over and over]"
+        },
+        {
+            "name": "operators",
+            "type": "textarea",
+            "default": "[solo, team of N, public users, etc.]"
+        },
+        {
+            "name": "existing_setup",
+            "type": "textarea",
+            "default": "[paste current CLAUDE.md / settings.json / agents, or write 'none']"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "en"
+        }
+    ]
+}
