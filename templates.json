@@ -81,17 +81,17 @@
     },
     {
         "title": "Architecture/System Graph",
-        "category": "Engineer Used Diagram",
+        "category": "Reporting",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7Y29udGV4dH19XG4tLS1pbmZvcm1hdGlvbiBhYm92ZVxuQmFzZWQgb24gdGhlIGluZm9ybWF0aW9uIGFib3ZlLCBtYWtlIGEgZ3JhcGggZm9yIHt7ZW5naW5lZXJ9fSB0byB1bmRlcnN0YW5kIHt7dG9waWN9fS5cblxuRXhwbGFpbiBjbGVhcmx5IGhvdyB7e3RvcGljfX0gd29yayB7e2ZvY3VzfX0uXG5cblN0eWxlIEluc3RydWN0aW9uczpcbk1vZGVybiBTYWFTIGFyY2hpdGVjdHVyZSBkaWFncmFtLCBmbGF0IFVJIHN0eWxlLlxuUGFzdGVsIGNvbG9yIHBhbGV0dGUgZmVhdHVyaW5nIG1pbnQgZ3JlZW4sIHNvZnQgbGF2ZW5kZXIsIGFuZCBza3kgYmx1ZS5cbk5lc3RlZCByb3VuZGVkIHJlY3RhbmdsZSBjb250YWluZXJzIGFuZCBwaWxsLXNoYXBlZCBidXR0b25zLlxuQ2xlYW4gc2Fucy1zZXJpZiB0eXBvZ3JhcGh5LlxuSGlnaC1rZXkgbGlnaHRpbmcsIHdoaXRlIGJhY2tncm91bmQsIG5vIGRyb3Agc2hhZG93cy5cbk9yZ2FuaXplZCBoaWVyYXJjaGljYWwgbGF5b3V0IGVtcGhhc2l6aW5nIGNsZWFyIGRhdGEgZmxvdywgdXNpbmcgZGlzdGluY3QsIHNvbGlkIGdyZXkgY29ubmVjdGluZyBsaW5lcyBhbmQgZGlyZWN0aW9uYWwgYXJyb3dzIHRvIGV4cGxpY2l0bHkgc2hvdyB0aGUgc2VxdWVuY2UsIGRpcmVjdGlvbiwgYW5kIGNvbm5lY3Rpdml0eSBiZXR3ZWVuIHN5c3RlbSBsYXllcnMuXG5Qcm9mZXNzaW9uYWwgdmVjdG9yIGdyYXBoaWMgYWVzdGhldGljLiIsImZpZWxkVmFsdWVzIjp7ImNvbnRleHQiOiJbSU5QVVRdIiwiZW5naW5lZXIiOiJFbmdpbmVlciIsInRvcGljIjoiT3BlbkNsYXcncyBBZ2VudCBMb29wIn0sImZpZWxkcyI6W3sibmFtZSI6ImNvbnRleHQiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiW0lOUFVUXSJ9LHsibmFtZSI6ImVuZ2luZWVyIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IkVuZ2luZWVyIn0seyJuYW1lIjoidG9waWMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiT3BlbkNsYXcncyBBZ2VudCBMb29wIn0seyJuYW1lIjoiZm9jdXMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiZnJvbSBzdGFydCB0byBmaW5pc2gifV19"
     },
     {
         "title": "Event/Flow Graph",
-        "category": "Engineer Used Diagram",
+        "category": "Reporting",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7Y29udGV4dH19XG4tLS1pbmZvcm1hdGlvbiBhYm92ZVxuQmFzZWQgb24gdGhlIGluZm9ybWF0aW9uIGFib3ZlLCBtYWtlIGEgZ3JhcGggZm9yIHt7ZW5naW5lZXJ9fSB0byB1bmRlcnN0YW5kIHt7dG9waWN9fS5cblxuRXhwbGFpbiBjbGVhcmx5IGhvdyB7e3RvcGljfX0gd29yayB7e2ZvY3VzfX0uXG5cblN0eWxlIEluc3RydWN0aW9uczpcblRlY2huaWNhbCB0ZXh0Ym9vayBkaWFncmFtLCBPJ1JlaWxseSBpbGx1c3RyYXRpb24gIGZsYXQgVUkgc3R5bGUuXG5UaGljayBibGFjayBvdXRsaW5lcywgaGFyZCBvZmZzZXQgZHJvcCBzaGFkb3dzIChubyBibHVyKS5cbkhpZ2gtY29udHJhc3QgcGFsZXR0ZTogbWFuaWxhIGJlaWdlLCBzdGFuZGFyZCBibHVlLCBhbGVydCByZWQuXG5NaXhlZCAyRCByb3VuZGVkIHJlY3RhbmdsZXMuXG5IaWVyYXJjaGljYWwgdHJlZSBsYXlvdXQuXG5FeHBsaWNpdCBkaXJlY3Rpb25hbCBmbG93IHVzaW5nIGFubm90YXRlZCBhcnJvd3MuXG5Db25uZWN0aW5nIGxpbmVzIGxhYmVsZWQgd2l0aCB0ZXh0IGRlc2NyaXB0aW9ucyBvZiBldmVudCBuYW1lcyBhbmQgZGF0YSBwYXlsb2FkcyB0byBjbGFyaWZ5IHN5c3RlbSBpbnRlcmFjdGlvbi5cbkNvbmRlbnNlZCBzYW5zLXNlcmlmIHR5cG9ncmFwaHkuXG5XaGl0ZSBiYWNrZ3JvdW5kLiIsImZpZWxkVmFsdWVzIjp7ImNvbnRleHQiOiJbSU5QVVRdIiwiZW5naW5lZXIiOiJFbmdpbmVlciIsInRvcGljIjoiT3BlbkNsYXcncyBBZ2VudCBMb29wIn0sImZpZWxkcyI6W3sibmFtZSI6ImNvbnRleHQiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiW0lOUFVUXSJ9LHsibmFtZSI6ImVuZ2luZWVyIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IkVuZ2luZWVyIn0seyJuYW1lIjoidG9waWMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiT3BlbkNsYXcncyBBZ2VudCBMb29wIn0seyJuYW1lIjoiZm9jdXMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiZnJvbSBzdGFydCB0byBmaW5pc2gifV19"
     },
     {
         "title": "ASCii Diagram",
-        "category": "Engineer Used Diagram",
+        "category": "Reporting",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7dG9waWN9fVxuXG5CYXNlIG9uIHRoZSBpbmZvcm1hdGlvbiBhYm92ZSwgUGVyZm9ybSBhIHN0cnVjdHVyZWQgZG9jdW1lbnQgcmV2aWV3IGJ5IGZpcnN0IGFuYWx5emluZyBpdHMgY29yZSBtZXNzYWdlIGFuZCBhc3N1bXB0aW9ucy4gU3VwcG9ydCB0aGUgYXNzZXNzbWVudCB3aXRoIHJlbGV2YW50IGV4dGVybmFsIHJlc2VhcmNoIHRvIGNvbmZpcm0gYWNjdXJhY3kgYW5kIGZpbGwgZ2Fwcy4gXG5FeHRyYWN0IHRoZSBkb2N1bWVudOKAmXMga2V5IGxvZ2ljYWwgcmVsYXRpb25zaGlwcyBhbmQgdmlzdWFsaXplIHRoZW0gdXNpbmcgYSBjb25jaXNlIEFTQ0lJIGRpYWdyYW0uIFxuUHJlc2VudCB0aGUgZmluZGluZ3MgYW5kIGVuZ2FnZSBpbiBhIGZvbGxvdy11cCBkaXNjdXNzaW9uIHRvIHJlZmluZSBpbnNpZ2h0cyBhbmQgZGV0ZXJtaW5lIGFjdGlvbmFibGUgY29uY2x1c2lvbnMuIiwiZmllbGRWYWx1ZXMiOnsidG9waWMiOiJbSU5TRVJUIFlPVVIgVE9QSUMgSEVSRV0ifSwiZmllbGRzIjpbeyJuYW1lIjoidG9waWMiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiW0lOU0VSVCBZT1VSIFRPUElDIEhFUkVdIn1dfQ%3D%3D"
     },
     {
@@ -203,5 +203,10 @@
         "title": "Social Carousel Planner (H.A.S.C., zh-tw)",
         "category": "Copywriting",
         "link": "/?file=social-carousel-planner-hasc-zh-tw"
+    },
+    {
+        "title": "Claude Artifact Delivery",
+        "category": "Reporting",
+        "link": "/?file=knowledge-delivery-architect"
     }
 ]
