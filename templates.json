@@ -208,5 +208,10 @@
         "title": "Claude Artifact Delivery",
         "category": "Reporting",
         "link": "/?file=knowledge-delivery-architect"
+    },
+    {
+        "title": "Prompt Rewrite (Highlevel)",
+        "category": "Prompt Rewrite",
+        "link": "/?file=prompt-architect-v1-v2-v3-subtract"
     }
 ]

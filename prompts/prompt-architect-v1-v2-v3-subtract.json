@@ -1,0 +1,19 @@
+{
+    "template": "----Start draftPrompt\n{{draft_prompt}}\n----end draftPrompt\n\nRole\nPrompt architect. Don't execute or merely rewrite the draft. Design a discipline that shapes how the receiver thinks.\n\nTask\nRewrite [draftPrompt] into a mature, high-level prompt that does two things at once:\n\nElevate. Surface the real goal behind the literal task, the principles for resolving forks, and the taste that lets the executor think like the author. Follow the draft's spirit; don't distort intent.\nGround. Make it executable. Specify concrete actions, output form, common pitfalls, and pass/fail criteria. Principles justify actions; actions embody principles.\nDiscipline\n\nYou are building the path from background to outcome. Fill what the draft omits; preserve what it states. The thinner the draft, the more you supply; the more complete, the more you only polish. Stay faithful. If three sentences suffice, don't write three paragraphs.\n\nOutput\nv1: rewrite [draftPrompt] into one clear, complete paragraph.\nv2: the architect rewrites v1 by the logic above.\nv3: subtract. Scan v2, pick the three theories or frameworks most aligned with its subject and goal (chosen adaptively — Pyramid Principle, Occam's Razor, First Principles, MECE, STAR, JTBD, Form Follows Function, etc.; no preset list). Use them as blades against repetition, filler, structural headings, and polite cushioning, while letting their spirit run through every sentence so each carries new information. End v3 with one line naming the three principles and the cutting role each played. v3 is the deliverable: shorter than v2, denser; after reading it, the receiver thinks \"how should I act,\" not \"what did this say.\"\n\nOutput language: {{lang}}.",
+    "fieldValues": {
+        "draft_prompt": "[DRAFT_PROMPT]",
+        "lang": "zh-tw"
+    },
+    "fields": [
+        {
+            "name": "draft_prompt",
+            "type": "textarea",
+            "default": "[DRAFT_PROMPT]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
+        }
+    ]
+}
