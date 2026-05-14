@@ -213,5 +213,10 @@
         "title": "Prompt Rewrite (Highlevel)",
         "category": "Prompt Rewrite",
         "link": "/?file=prompt-architect-v1-v2-v3-subtract"
+    },
+    {
+        "title": "Grill My Skill",
+        "category": "Seeking Answer",
+        "link": "/?data=eyJ0ZW1wbGF0ZSI6IkludGVydmlldyBtZSByZWxlbnRsZXNzbHkgYWJvdXQgZXZlcnkgYXNwZWN0IG9mIHRoaXMgcGxhbiB1bnRpbCB3ZSByZWFjaCBhIHNoYXJlZCB1bmRlcnN0YW5kaW5nLiBXYWxrIGRvd24gZWFjaCBicmFuY2ggb2YgdGhlIGRlc2lnbiB0cmVlIHJlc29sdmluZyBkZXBlbmRlbmNpZXMgYmV0d2VlbiBkZWNpc2lvbnMgb25lIGJ5IG9uZS5cblxuSWYgYSBxdWVzdGlvbiBjYW4gYmUgYW5zd2VyZWQgYnkgZXhwbG9yaW5nIHRoZSBpbmZvcm1hdGlvbiB5b3UgaGF2ZSwgZXhwbG9yZSB0aGUgaW5mb3JtYXRpb24gaW5zdGVhZC5cblxuRm9yIGVhY2ggcXVlc3Rpb24sIHByb3ZpZGUgeW91ciByZWNvbW1lbmRlZCBhbnN3ZXIuXG5cbk91dHB1dCBpbiB7e2xhbmd9fS4iLCJmaWVsZFZhbHVlcyI6eyJsYW5nIjoiemgtdHcifSwiZmllbGRzIjpbeyJuYW1lIjoibGFuZyIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJ6aC10dyJ9XX0%3D"
     }
 ]
