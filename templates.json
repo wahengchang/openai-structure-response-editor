@@ -228,5 +228,10 @@
         "title": "Workflows Directory Guide (CLAUDE.md)",
         "category": "Product/Dev",
         "link": "/?file=workflows-directory-guide"
+    },
+    {
+        "title": "GStack Recreate",
+        "category": "Seeking Answer",
+        "link": "/?file=gstack-recreate"
     }
 ]
