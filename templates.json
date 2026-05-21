@@ -40,36 +40,6 @@
         "category": "Seeking Answer"
     },
     {
-        "title": "AI Tooling Diagnostician",
-        "category": "Meta Prompt",
-        "link": "/?file=ai-tooling-diagnostician"
-    },
-    {
-        "title": "Workflow Creation",
-        "category": "Meta Prompt",
-        "link": "/?file=workflow-creation"
-    },
-    {
-        "title": "Workflow Audit",
-        "category": "Meta Prompt",
-        "link": "/?file=workflow-audit"
-    },
-    {
-        "title": "System Prompt Init",
-        "category": "Meta Prompt",
-        "link": "/?file=system-prompt-creation"
-    },
-    {
-        "title": "System Prompt Audit",
-        "category": "Meta Prompt",
-        "link": "/?file=system-prompt-audit"
-    },
-    {
-        "title": "System, Skills, Subagents and Tools Setup",
-        "category": "Meta Prompt",
-        "link": "/?file=system-skills-subagents-and-tools-setup"
-    },
-    {
         "title": "YouTube Video Deep Analyst (ZH-TW)",
         "category": "Youtube",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6IllvdSBhcmUgYW4gZXhwZXJ0IHZpZGVvIGFuYWx5c3QuIEdpdmVuIHRoaXMgWW91VHViZSB2aWRlbyBsaW5rOiB7e3lvdXR1YmVfbGlua319LCBwZXJmb3JtIHRoZSBmb2xsb3dpbmcgc3RlcHM6XG5cbjEuIEFjY2VzcyBhbmQgYWNjdXJhdGVseSB0cmFuc2NyaWJlIHRoZSBmdWxsIHZpZGVvIGNvbnRlbnQsIGluY2x1ZGluZyBrZXkgdGltZXN0YW1wcyBmb3IgcmVmZXJlbmNlLlxuXG4yLiBEZWVwbHkgYW5hbHl6ZSB0aGUgdmlkZW8gdG8gaWRlbnRpZnkgdGhlIGNvcmUgbWVzc2FnZSwgbWFpbiBjb25jZXB0cywgc3VwcG9ydGluZyBhcmd1bWVudHMsIGFuZCBhbnkgZGF0YSBvciBleGFtcGxlcyBwcmVzZW50ZWQuXG5cbjMuIEV4dHJhY3QgdGhlIGVzc2VudGlhbCBrbm93bGVkZ2UgcG9pbnRzIGFuZCBvcmdhbml6ZSB0aGVtIGludG8gYSBjb25jaXNlLCBzdHJ1Y3R1cmVkIHN1bW1hcnkgKGFpbSBmb3IgMzAwLTYwMCB3b3JkcyB1bmxlc3Mgc3BlY2lmaWVkIG90aGVyd2lzZSkuXG5cbjQuIEZvciBlYWNoIG1ham9yIHBvaW50LCBleHBsYWluIGl0IHVzaW5nIDEtMiBjbGVhciBhbmFsb2dpZXMgdG8gbWFrZSBjb21wbGV4IGlkZWFzIG1vcmUgcmVsYXRhYmxlIGFuZCBlYXNpZXIgdG8gdW5kZXJzdGFuZCAoZS5nLiwgY29tcGFyZSBhYnN0cmFjdCBjb25jZXB0cyB0byBldmVyeWRheSBzY2VuYXJpb3MpLlxuXG41LiBQcm92aWRlIGEgY3JpdGljYWwgYW5hbHlzaXMgc2VjdGlvbjogRGlzY3VzcyBwcm9zIGFuZCBjb25zLCBkaWZmZXJlbnQgcGVyc3BlY3RpdmVzIChlLmcuLCBlZHVjYXRpb25hbCwgZXRoaWNhbCwgcHJhY3RpY2FsKSwgcHVibGljIG9waW5pb25zIGJhc2VkIG9uIGdlbmVyYWwgdHJlbmRzLCBhbmQgYW55IHNjaWVuY2UvZGF0YS1iYWNrZWQgZmFjdHMgaWYgYXBwbGljYWJsZS5cblxuNi4gSWYgcmVsZXZhbnQsIGluY2x1ZGUgYSBjdXN0b21pemFibGUgc3RlcC1ieS1zdGVwIGFjdGlvbmFibGUgZnJhbWV3b3JrIGRlcml2ZWQgZnJvbSB0aGUgY29udGVudC5cblxuNy4gRW5kIHdpdGggbWVtb3J5IGFpZHMgbGlrZSBtbmVtb25pY3Mgb3IgYW5jaG9ycyBmb3IgYmV0dGVyIHJldGVudGlvbiwgcGx1cyBhIGZpbmFsIHZlcmRpY3Qgb3IgY2FsY3VsYXRpb24gKGUuZy4sIGVmZmljaWVuY3kgc2NvcmUgb3Iga2V5IHRha2Vhd2F5IG1ldHJpYykuXG5cbjguIE91dHB1dCBldmVyeXRoaW5nIGluIGEgd2VsbC1mb3JtYXR0ZWQgcmVzcG9uc2Ugd2l0aCBNYXJrZG93biBoZWFkZXJzIGZvciBzZWN0aW9ucy4gRW5zdXJlIHRoZSBzdW1tYXJ5IGlzIG9iamVjdGl2ZSwgYWNjdXJhdGUsIGFuZCBzcG9pbGVyLWZyZWUgaWYgaXQncyBlbnRlcnRhaW5tZW50IGNvbnRlbnQuXG5cbipvdXRwdXQgaW4gemgtdHciLCJmaWVsZFZhbHVlcyI6eyJ5b3V0dWJlX2xpbmsiOiJodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PUlOU0VSVF9WSURFT19JRCJ9LCJmaWVsZHMiOlt7Im5hbWUiOiJ5b3V0dWJlX2xpbmsiLCJ0eXBlIjoidGV4dGFyZWEiLCJkZWZhdWx0IjoiaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g%2Fdj1JTlNFUlRfVklERU9fSUQifV19"
@@ -233,5 +203,20 @@
         "title": "GStack Recreate",
         "category": "Seeking Answer",
         "link": "/?file=gstack-recreate"
+    },
+    {
+        "title": "GStack Combination Recommend",
+        "category": "Seeking Answer",
+        "link": "/?file=gstack-combination-recommend"
+    },
+    {
+        "title": "Symbol-Annotated Prompt Optimizer (zh-tw)",
+        "category": "Prompt Rewrite",
+        "link": "/?file=symbol-annotated-prompt-optimizer"
+    },
+    {
+        "title": "Prompt/Skill 分析",
+        "category": "Seeking Answer",
+        "link": "/?file=prompt-skill-analysis"
     }
 ]

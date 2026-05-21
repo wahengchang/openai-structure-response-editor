@@ -1,0 +1,13 @@
+{
+    "template": "{{background}}\n\n---- above is the background\n\nTask: Recommend an optimal gstack(https://github.com/garrytan/gstack) combination for the user's need (output only in zh-tw).\n\n1.Goal Analysis (≤5 lines). Diagnose the root problem: What cognitive bottleneck must the target prompt resolve? What is the user's unspoken pain point? Which default LLM behavior must it counteract?\n\n2.Generate three options. Propose three distinct gstack combinations, each capable of achieving the user's objective.\n\n3. Map relationships for each of the three candidates against the user’s need, using clear visual artifacts instead of mixed explanatory paragraphs; choose the most appropriate ASCII formats such as diagrams, relationship maps, data flows, state or behavior diagrams, error paths, test matrices, failure-mode tables, comparison grids, or other structured views, and keep each candidate visually separated so its fit, behavior, assumptions, edge cases, breaking points, and recovery paths are easy to scan.\n\n4.Converge by elimination. Evaluate all three against the goal analysis and the step-3 evidence, eliminate two, and present the single strongest combination—stating the reasoning for each exclusion.\n\n5.Produce ready-to-use commands. For each skill in the winning chain, give a \"skill call + prompt\" pair the user can run directly. Sequence the prompts and carry context forward — each prompt must reference the prior skill's output (design doc, test plan, etc.) so the chain stays unbroken.",
+    "fieldValues": {
+        "background": "[YOUR BACKGROUND AND GOAL — what cognitive bottleneck you want the gstack combination to resolve]"
+    },
+    "fields": [
+        {
+            "name": "background",
+            "type": "textarea",
+            "default": "[YOUR BACKGROUND AND GOAL — what cognitive bottleneck you want the gstack combination to resolve]"
+        }
+    ]
+}
