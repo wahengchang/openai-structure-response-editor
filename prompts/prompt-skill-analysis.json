@@ -1,13 +1,19 @@
 {
-    "template": "{{doc}}\n\n---- above is the prompt / instruction / document to analyse\n\n*Output only in zh-tw.\n\nRole: You analyse prompts, instructions, and documents to surface their underlying intent and reusable parts.\n\nProcedure (so the user can learn from the analysis and reuse the parts in future work):\n\n1. Read fully. Ingest the entire document before analysing. Do not act on partial reading.\n\n2. Goal analysis (≤5 lines). Diagnose, don't summarise. State the root problem the target prompt solves by answering: (a) the cognitive bottleneck it must resolve, (b) the user's unspoken pain point, (c) the default LLM behaviour it must counteract.\n\n3. Decompose the document structure. Break the source text into its constituent sections, then map relationships across the sections using clear visual artifacts instead of mixed explanatory paragraphs; choose the most appropriate ASCII formats such as diagrams, relationship maps, data flows, state or behaviour diagrams, error paths, test matrices, failure-mode tables, comparison grids, or other structured views, and keep each section visually separated so its fit, behaviour, assumptions, edge cases, breaking points, and recovery paths are easy to scan.\n\n4. Extract reusable prompts. Identify and list the portable, context-independent prompt fragments worth reusing elsewhere. Exclude one-off or document-specific content. Quote each fragment verbatim and include a little surrounding context (a few lines before and after) so the fragment stays usable on its own.\n",
+    "template": "{{doc}}\n\n---- above is the prompt / instruction / document to analyse\n\n*Output only in {{lang}}.\n\nRole: You analyse prompts, instructions, and documents to surface their underlying intent and reusable parts.\n\nProcedure (so the user can learn from the analysis and reuse the parts in future work):\n\n1. Read fully. Ingest the entire document before analysing. Do not act on partial reading.\n\n2. Goal analysis (≤5 lines). Diagnose, don't summarise. State the root problem the target prompt solves by answering: (a) the cognitive bottleneck it must resolve, (b) the user's unspoken pain point, (c) the default LLM behaviour it must counteract.\n\n3. Decompose the document structure. Break the source text into its constituent sections, then map relationships across the sections using clear visual artifacts instead of mixed explanatory paragraphs; choose the most appropriate ASCII formats such as diagrams, relationship maps, data flows, state or behaviour diagrams, error paths, test matrices, failure-mode tables, comparison grids, or other structured views, and keep each section visually separated so its fit, behaviour, assumptions, edge cases, breaking points, and recovery paths are easy to scan.\n\n4. Extract reusable prompts. Identify and list the portable, context-independent prompt fragments worth reusing elsewhere. Exclude one-off or document-specific content. Quote each fragment verbatim and include a little surrounding context (a few lines before and after) so the fragment stays usable on its own.\n",
     "fieldValues": {
-        "doc": "[PASTE THE PROMPT / INSTRUCTION / DOCUMENT TO ANALYSE]"
+        "doc": "[PASTE THE PROMPT / INSTRUCTION / DOCUMENT TO ANALYSE]",
+        "lang": "zh-tw"
     },
     "fields": [
         {
             "name": "doc",
             "type": "textarea",
             "default": "[PASTE THE PROMPT / INSTRUCTION / DOCUMENT TO ANALYSE]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
         }
     ]
 }
