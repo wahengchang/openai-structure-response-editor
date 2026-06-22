@@ -1,19 +1,19 @@
 {
     "template": "{{background}}\n---above is the info that we will work on\n\n目的：針對新工作，充份研究，讓戶用一眼看清其能力範圍。製作三支直向 9:16、無聲、繁中字幕的 demo。\n\n開工前提（強制）：\n- 初始資訊有限：先做足夠深入的研究與探索，確認充分後才動工。\n- 建立關於此工作的資料夾 {{path}}，儘可能所有工具安裝、檔案放在此，完成初始化（必要時 global）（之後回顧時，一切都檔案文件皆在此）。\n- 使用者僅在場約 3 分鐘：此期間一次取齊自主作業所需權限，\n  重點是 browser／computer-use（用以擷取真實卡片截圖，介面通常是網頁、有時是本機App、終端機）；缺少即立即請求。\n- 其後數小時無人值守自主運作；遇任何阻礙或歧義，立即用 AskUserQuestion 詢問。\n\n由於你掌握的資訊有限，請先進行充分且深入的研究與探索——不只是初步了解，而要探索到足夠深入、足夠完整的程度，確認探索已足夠後才進入下一步並完成所有初始化\n\n影片框架（統一套用）：\n- 主視覺＝browser／computer-use實際擷取的真實畫面，Remotion 疊加動畫。\n- 手法：zoom in/out、游標點擊、打字 ＋ 簡潔字幕；務實不浮誇。\n- 視覺：現代深色風、繁中字幕。\n\n產製結構：\n- 每支 demo 由多段「單功能片段」串接；段間無開場、過場、收尾。\n- 交付三支獨立影片：\n\n交付物（三支 demo）：\n- 基礎 demo——呈現能力邊界與可操作範圍。\n- 專業 demo——可直接對客戶／對外展演的高完成度成品，展現設計上限。\n- 想像力 demo——主題自訂，展現延伸潛力。",
     "fieldValues": {
-        "background": "[貼上專案背景 / 工具資訊 / 需求]",
-        "path": "./"
+        "background": "[BACKGROUND]",
+        "path": "./pj-[toolName]"
     },
     "fields": [
         {
             "name": "background",
             "type": "textarea",
-            "default": "[貼上專案背景 / 工具資訊 / 需求]"
+            "default": "[BACKGROUND]"
         },
         {
             "name": "path",
             "type": "textarea",
-            "default": "./"
+            "default": "./pj-[toolName]"
         }
     ]
 }
