@@ -1,0 +1,31 @@
+{
+    "template": "*Output only in {{lang}}.\n\nI am about to work in territory I don't know well. Your job is NOT to do the task yet. Your job is to show me what I don't know I don't know, so my next prompt is better.\n\nWhat I'm trying to do:\n{{task}}\n\nMy experience level with this specific area:\n{{experience}}\n\nSteps:\n1. Anchor on the two facts above (what I'm doing + my starting point). If either is unclear, state the assumption you're making before continuing. My starting point changes everything.\n2. Explore the relevant territory yourself: the module, its history, its conventions, prior art in the repo, and — if the domain is external — what practitioners consider table stakes.\n3. Report back in four sections:\n   - Landmines — the mistakes someone new here typically makes, plus repo-specific potholes (deprecated paths, misleading names, half-migrated patterns).\n   - Hidden context — decisions already made that constrain the work (why things are shaped this way, invariants that must hold).\n   - What good looks like — 2-3 examples of the pattern done well, from this repo or elsewhere, so I can calibrate quality.\n   - Questions I should be asking — the 3-5 questions an expert would ask before starting, each with your best guess at the answer.\n4. End with a rewritten version of my original request that incorporates what you found, so I can see the difference between my map and the territory.\n\nGuardrails:\n- Do not start implementing. This ends at understanding.\n- Prioritise unknowns that would change the architecture or the approach over trivia.\n- If the area is simpler than I feared, say so plainly. \"You have no significant blindspots here\" is a valid and valuable result.",
+    "fieldValues": {
+        "task": "[WHAT YOU'RE TRYING TO DO — the task, feature, or change you're about to start]",
+        "experience": "[YOUR EXPERIENCE WITH THIS AREA — e.g. new to this codebase / first time doing infra / senior but new domain]",
+        "lang": "zh-tw",
+        "fillin_guide": "task: the work you're about to start. experience: your familiarity with this specific area (drives how deep the pass goes). lang: output language (default zh-tw)."
+    },
+    "fields": [
+        {
+            "name": "task",
+            "type": "textarea",
+            "default": "[WHAT YOU'RE TRYING TO DO — the task, feature, or change you're about to start]"
+        },
+        {
+            "name": "experience",
+            "type": "textarea",
+            "default": "[YOUR EXPERIENCE WITH THIS AREA — e.g. new to this codebase / first time doing infra / senior but new domain]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
+        },
+        {
+            "name": "fillin_guide",
+            "type": "textarea",
+            "default": "task: the work you're about to start. experience: your familiarity with this specific area (drives how deep the pass goes). lang: output language (default zh-tw)."
+        }
+    ]
+}
