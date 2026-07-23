@@ -1,21 +1,33 @@
 {
-    "template": "*Output only in {{lang}}.\n\nI am about to work in territory I don't know well. Your job is NOT to do the task yet. Your job is to show me what I don't know I don't know, so my next prompt is better.\n\nWhat I'm trying to do:\n{{task}}\n\nMy experience level with this specific area:\n{{experience}}\n\nSteps:\n1. Anchor on the two facts above (what I'm doing + my starting point). If either is unclear, state the assumption you're making before continuing. My starting point changes everything.\n2. Explore the relevant territory yourself: the module, its history, its conventions, prior art in the repo, and — if the domain is external — what practitioners consider table stakes.\n3. Report back in four sections:\n   - Landmines — the mistakes someone new here typically makes, plus repo-specific potholes (deprecated paths, misleading names, half-migrated patterns).\n   - Hidden context — decisions already made that constrain the work (why things are shaped this way, invariants that must hold).\n   - What good looks like — 2-3 examples of the pattern done well, from this repo or elsewhere, so I can calibrate quality.\n   - Questions I should be asking — the 3-5 questions an expert would ask before starting, each with your best guess at the answer.\n4. End with a rewritten version of my original request that incorporates what you found, so I can see the difference between my map and the territory.\n\nGuardrails:\n- Do not start implementing. This ends at understanding.\n- Prioritise unknowns that would change the architecture or the approach over trivia.\n- If the area is simpler than I feared, say so plainly. \"You have no significant blindspots here\" is a valid and valuable result.",
+    "template": "*Output only in {{lang}}.\n\n我正在進行 {{task}}，但我對 {{area}} 的經驗只有 {{experience}}。\n\n先不要實作。\n\n請對 {{code_path}} 執行一次 blindspot pass：\n\n1. 找出我可能完全沒想到的 unknown unknowns。\n2. 搜尋相關程式碼、歷史決策、測試與既有慣例。\n3. 說明每個盲區為何重要，以及忽略它會怎樣失敗。\n4. 為每個盲區提供一條應加入正式 prompt 的限制或問題。\n5. 最後整合成一份更完整的 implementation prompt。",
     "fieldValues": {
-        "task": "[WHAT YOU'RE TRYING TO DO — the task, feature, or change you're about to start]",
-        "experience": "[YOUR EXPERIENCE WITH THIS AREA — e.g. new to this codebase / first time doing infra / senior but new domain]",
+        "task": "[任務 — 你即將進行的工作、功能或改動]",
+        "area": "[模組／領域 — 這次工作所在的模組、領域或工具鏈]",
+        "experience": "[經驗程度 — 例如：第一次碰這個 repo／沒做過 infra／資深但領域陌生]",
+        "code_path": "[程式碼路徑／問題領域 — 要掃描的檔案、目錄或問題範圍]",
         "lang": "zh-tw",
-        "fillin_guide": "task: the work you're about to start. experience: your familiarity with this specific area (drives how deep the pass goes). lang: output language (default zh-tw)."
+        "fillin_guide": "task: 即將進行的工作。area: 工作所在的模組或領域。experience: 你對該領域的熟悉程度（決定掃描深度）。code_path: 要掃描的程式碼路徑或問題領域。lang: 輸出語言（預設 zh-tw）。"
     },
     "fields": [
         {
             "name": "task",
             "type": "textarea",
-            "default": "[WHAT YOU'RE TRYING TO DO — the task, feature, or change you're about to start]"
+            "default": "[任務 — 你即將進行的工作、功能或改動]"
+        },
+        {
+            "name": "area",
+            "type": "textarea",
+            "default": "[模組／領域 — 這次工作所在的模組、領域或工具鏈]"
         },
         {
             "name": "experience",
             "type": "textarea",
-            "default": "[YOUR EXPERIENCE WITH THIS AREA — e.g. new to this codebase / first time doing infra / senior but new domain]"
+            "default": "[經驗程度 — 例如：第一次碰這個 repo／沒做過 infra／資深但領域陌生]"
+        },
+        {
+            "name": "code_path",
+            "type": "textarea",
+            "default": "[程式碼路徑／問題領域 — 要掃描的檔案、目錄或問題範圍]"
         },
         {
             "name": "lang",
@@ -25,7 +37,7 @@
         {
             "name": "fillin_guide",
             "type": "textarea",
-            "default": "task: the work you're about to start. experience: your familiarity with this specific area (drives how deep the pass goes). lang: output language (default zh-tw)."
+            "default": "task: 即將進行的工作。area: 工作所在的模組或領域。experience: 你對該領域的熟悉程度（決定掃描深度）。code_path: 要掃描的程式碼路徑或問題領域。lang: 輸出語言（預設 zh-tw）。"
         }
     ]
 }
