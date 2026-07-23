@@ -208,5 +208,10 @@
         "title": "工具能力探索 (三支直向 Demo 影片)",
         "category": "project implement",
         "link": "/?file=demo"
+    },
+    {
+        "title": "Blindspot Pass (Surface Unknown Unknowns)",
+        "category": "Seeking Answer",
+        "link": "/?file=blindspot-pass-surface-unknown-unknowns"
     }
 ]
