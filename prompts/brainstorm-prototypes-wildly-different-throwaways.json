@@ -1,0 +1,31 @@
+{
+    "template": "*Output only in {{lang}}.\n\nI can't fully articulate what I want yet. Generate several genuinely different throwaway variations for me to react to, so my real criteria surface from the reactions.\n\nThe decision I'm trying to make:\n{{decision}}\n\nContext / constraints:\n{{context}}\n\nSteps:\n1. Establish scope first: state what is being decided (layout? approach? data model? tone?) and what is explicitly out of scope. One decision per round — if the above spans several, pick the load-bearing one and say which.\n2. Produce 3-5 variations that are WILDLY different, not shades of the same idea. If two variations would get the same reaction, replace one.\n3. Make them cheap and disposable:\n   - Visual/UX → a single self-contained HTML file with fake data, no backend, no state.\n   - Approaches → a one-screen sketch of each: the idea, what it optimises for, its sharpest tradeoff.\n   - Ranked lists → order from cheapest to most ambitious so I can draw my line.\n4. Label each variation with the belief it bets on (\"this one assumes density beats whitespace\"), so my reaction reveals the underlying criterion, not just a preference.\n5. After I react, verbalise what was learned: \"you consistently rejected X, which suggests the real requirement is Y.\" That sentence is the deliverable — it becomes part of the spec.\n\nGuardrails:\n- Nothing here is production code. Say so, and don't wire prototypes into the real app.\n- Do not converge early to the variation you'd pick. The point is spanning the space.\n- If I react to none of them, that's signal too: the decision space was framed wrong. Reframe and rerun rather than generating more of the same.",
+    "fieldValues": {
+        "decision": "[THE DECISION YOU'RE STUCK ON — the layout, approach, data model, tone, or draft you need to choose]",
+        "context": "[CONTEXT / CONSTRAINTS — what this is for, hard limits, anything explicitly off the table]",
+        "lang": "zh-tw",
+        "fillin_guide": "decision: the one choice you want options for. context: what it's for plus any hard constraints. lang: output language (default zh-tw)."
+    },
+    "fields": [
+        {
+            "name": "decision",
+            "type": "textarea",
+            "default": "[THE DECISION YOU'RE STUCK ON — the layout, approach, data model, tone, or draft you need to choose]"
+        },
+        {
+            "name": "context",
+            "type": "textarea",
+            "default": "[CONTEXT / CONSTRAINTS — what this is for, hard limits, anything explicitly off the table]"
+        },
+        {
+            "name": "lang",
+            "type": "textarea",
+            "default": "zh-tw"
+        },
+        {
+            "name": "fillin_guide",
+            "type": "textarea",
+            "default": "decision: the one choice you want options for. context: what it's for plus any hard constraints. lang: output language (default zh-tw)."
+        }
+    ]
+}
