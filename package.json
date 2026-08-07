@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "clean": "find . -name '._*' -type f -delete",
-    "dev": "npx serve --no-clipboard -l 5001 ./"
+    "dev": "node js/dev-server.mjs"
   },
   "dependencies": {
     "serve": "^14.2.4"

@@ -3,9 +3,11 @@ import FieldList from './FieldList.js';
 import Preview from './Preview.js';
 import ModeSwitch from './ModeSwitch.js';
 import { extractVariables } from '../../utils/template.js';
+import { isEditorStateDirty, normalizeEditorState } from '../../utils/editor-state.mjs';
 
 export default {
     components: { FieldList, ModeSwitch, Preview },
+    emits: ['request-share', 'save-template', 'update-template'],
     props: {
         initialTemplate: {
             type: String,
@@ -18,6 +20,18 @@ export default {
         initialFields: {
             type: Array,
             default: () => []
+        },
+        updateAvailable: {
+            type: Boolean,
+            default: false
+        },
+        updateBaseline: {
+            type: Object,
+            default: null
+        },
+        updatePending: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -30,6 +44,32 @@ export default {
             highlightVars: [],
             shareToast: { show: false, message: '', type: 'success' }
         };
+    },
+    computed: {
+        currentUpdateState() {
+            try {
+                return normalizeEditorState({
+                    template: this.template,
+                    fieldValues: this.fieldValues,
+                    fields: this.fields
+                });
+            } catch {
+                return null;
+            }
+        },
+        hasUpdateChanges() {
+            if (!this.updateAvailable || !this.updateBaseline || !this.currentUpdateState) return false;
+            try {
+                return isEditorStateDirty(this.currentUpdateState, this.updateBaseline);
+            } catch {
+                return false;
+            }
+        },
+        updateButtonTitle() {
+            if (this.updatePending) return 'Updating template source';
+            if (!this.hasUpdateChanges) return 'No changes to update';
+            return 'Update template source';
+        }
     },
     mounted() {
         // Set initial values from props
@@ -112,6 +152,10 @@ export default {
             this.$nextTick(() => {
                 this.autoResizeTextarea();
             });
+        },
+        onUpdateClick() {
+            if (!this.hasUpdateChanges || this.updatePending || !this.currentUpdateState) return;
+            this.$emit('update-template', this.currentUpdateState);
         },
         autoResizeTextarea() {
             const textarea = this.$refs.templateTextarea;
@@ -238,19 +282,34 @@ export default {
                                     </button>
                                 </div>
                             </div>
-                            <button
-                                @click="onShareClick"
-                                @keydown.enter.space.prevent="onShareClick"
-                                tabindex="0"
-                                class="px-4 py-1 rounded-full border border-indigo-500 text-indigo-400 bg-transparent hover:border-indigo-600 hover:text-indigo-200 focus:border-indigo-700 focus:text-indigo-100 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-300 relative group transition"
-                                :aria-label="'Copy share link'"
-                                title="Copy share link"
-                            >
-                                Share
-                                <span class="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 rounded bg-gray-800 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
-                                    Copy share link
-                                </span>
-                            </button>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    v-if="updateAvailable"
+                                    @click="onUpdateClick"
+                                    :disabled="!hasUpdateChanges || updatePending"
+                                    :aria-label="updatePending ? 'Updating template source' : 'Update template source'"
+                                    :title="updateButtonTitle"
+                                    class="px-4 py-1 rounded-full border text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-orange-300 transition"
+                                    :class="hasUpdateChanges && !updatePending
+                                        ? 'border-orange-500 bg-orange-500 text-gray-950 hover:bg-orange-400 hover:border-orange-400'
+                                        : 'border-gray-600 bg-gray-700 text-gray-500 cursor-not-allowed'"
+                                >
+                                    {{ updatePending ? 'Updating…' : 'Update' }}
+                                </button>
+                                <button
+                                    @click="onShareClick"
+                                    @keydown.enter.space.prevent="onShareClick"
+                                    tabindex="0"
+                                    class="px-4 py-1 rounded-full border border-indigo-500 text-indigo-400 bg-transparent hover:border-indigo-600 hover:text-indigo-200 focus:border-indigo-700 focus:text-indigo-100 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-300 relative group transition"
+                                    :aria-label="'Copy share link'"
+                                    title="Copy share link"
+                                >
+                                    Share
+                                    <span class="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 rounded bg-gray-800 text-xs text-white opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+                                        Copy share link
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                         <Preview v-if="mode === 'working'" :template="template" :values="fieldValues" @notify="showShareToast" />
                         <div v-if="mode === 'setting'" class="relative mb-2">
