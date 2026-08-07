@@ -193,5 +193,10 @@
         "title": "Find Key Variables",
         "category": "Seeking Answer",
         "link": "/?data=eyJ0ZW1wbGF0ZSI6Int7QkFDS0dST1VORH19XG5cbkZvY3VzOiB7e2ZvY3VzfX1cbi0tLWFib3ZlIGlzIGJhY2tncm91bmRcbuaMieeFp%2BS4iui%2FsOeUqOaItueahOiDjOaZr%2B%2B8jOebrueahOaYr%2BaJvuWHuueUqOaItumXnOmNteWboOe0oCjorormlbgp77yM5oyJ5Lul5LiL6YGO56iL5o6i57Si77yM5pyA57WC5om%2B5Ye65L6GXG5cbjEu55So5a6i6KeA55qE6Kqe6KiA77yM5pWY6L%2Bw5Y6f5LqL5oOF77yM5YyF5ous77yaMS4x6KGo6Z2i6LOH6KiKIDEuMuWFtuiDjOaZryAxLjPnm67mqJkgMS406ZmQ5Yi2IDEuNSDnnJ%2FmraPpnIDopoHop6PmsbrnmoTmoLjlv4PllY%2FpoYxcbjIu5Zyo6Kmy6aCY5Z%2Bf77yM5om%2B5Ye65pyA57K%2B54WJ55qE6Kqe6KiA77yM6YeN6L%2Bw5LiA5qyhXG4zLumOluWumumgmOWfn%2BeEtuW%2BjOaOoue0ou%2B8jOaJvuWHuue1kOani%2BWMlua1geeoi%2B%2B8muWwh%2BW3peS9nOaLhuino%2BeCuui8uOWFpeOAgeaineS7tuOAgeihjOWLleOAgee1kOaenOWbm%2BmajuauteOAglxuNC7lho3ph43ov7DkuIDmrKFcbjUu5YiG6aGe6K6K6YeP77ya5bCN5q%2BP5YCL5YCZ6YG46K6K6YeP5Yik5pa35YW26aGe5Yil4oCU4oCU6Ieq6K6K6YeP77yI5Y%2Bv5Lu75oSP6LOm5YC844CB5LiN5Y%2BX5YW25LuW6K6K6YeP5rG65a6a77yJ44CB5Zug6K6K6YeP77yI5L6d6LO05YW25LuW6K6K6YeP44CB5piv6KmV5Lyw55uu5qiZ77yJ44CB5o6n5Yi26K6K6YeP77yI5pyJ5b2x6Z%2B%2F5L2G5Li75YuV5Zu65a6a5Lul5o6S6Zmk5bmy5pO%2B77yJ44CB5re35reG6K6K6YeP77yI5ZCM5pmC5b2x6Z%2B%2F6Ieq6K6K6YeP6IiH5Zug6K6K6YeP44CB6ZyA54m55Yil6K2m56S66aKo6Zqq77yJ44CCXG42LuacgOe1gueCuueUqOaItuaPkOWHuiAzIOWAi%2BeJiOacrO%2B8jOmBuOWHuuacgOWQiOmBqeiAhe%2B8jOS4pueUouWHuuacgOWwj%2BWFheWIhuiuiumHj%2BmbhuiIh%2Baooeadv%2BOAgiIsImZpZWxkVmFsdWVzIjp7fSwiZmllbGRzIjpbeyJuYW1lIjoiQkFDS0dST1VORCIsInR5cGUiOiJ0ZXh0YXJlYSIsImRlZmF1bHQiOiJbW0JBQ0tHUk9VTkRdXSJ9LHsibmFtZSI6ImZvY3VzIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6IkZvY3VzOiBbW2ZvY3VzIG9uXV0ifV19"
+    },
+    {
+        "title": "Conversation to Standalone Prompt (對話方法提煉)",
+        "category": "project implement",
+        "link": "/?file=conversation-to-standalone-prompt"
     }
 ]
