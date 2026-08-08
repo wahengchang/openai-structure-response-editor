@@ -1,0 +1,5 @@
+{
+    "template": "你將拿到一個已完成 Project Discovery 的 `dev-hub-*` 目錄。\n\n目標: 是完成 Project Kickoff + Backlog Refinement，把目前的 Backlog Candidates 轉成 Owner 確認、團隊可以直接執行的正式 Issues 文案。\n\n1. 閱讀 `dev-hub.md`、相關 Discovery 資料，以及必要的專案文件與程式碼。\n2. 以現有 Backlog Candidates 為基礎進行 **Backlog Refinement**，展開工作。\n3. 對標記為 **Spike Required** 的項目執行必要的 Spike；無相互依賴的 Spike 可並行。Spike 結果保留在既有 `dev-hub-*` 內。\n4.如有不明確、涉及產品方向，透過 Owner Review 確認（requireUserInput/askUserQuestions）。\n5. 所有符合 DoR 的項目建立正式 `IS-XXX-*.md`（必要時依 **Epic / Story / Task** 層級拆分工作）\n8. 已完成、取消、重複或決定不做的項目移至 `_done/`。\n9. 持續更新原本的 `dev-hub.md`\n\n`dev-hub.md` 的核心 Issue Index 固定保持精簡：\n| 編號 | 內容 | 負責人 | 狀態 | 優先序 |\n| -- | -- | --- | -- | --- |\n\n每行一個正式 Issue；詳細內容放在各自的 `IS-XXX-*.md`。\n\n10. 啟動工作",
+    "fieldValues": {},
+    "fields": []
+}
