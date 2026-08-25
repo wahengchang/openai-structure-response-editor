@@ -150,6 +150,11 @@
         "link": "/?data=eyJ0ZW1wbGF0ZSI6IkludGVydmlldyBtZSByZWxlbnRsZXNzbHkgYWJvdXQgZXZlcnkgYXNwZWN0IG9mIHRoaXMgcGxhbiB1bnRpbCB3ZSByZWFjaCBhIHNoYXJlZCB1bmRlcnN0YW5kaW5nLiBXYWxrIGRvd24gZWFjaCBicmFuY2ggb2YgdGhlIGRlc2lnbiB0cmVlIHJlc29sdmluZyBkZXBlbmRlbmNpZXMgYmV0d2VlbiBkZWNpc2lvbnMgb25lIGJ5IG9uZS5cblxuSWYgYSBxdWVzdGlvbiBjYW4gYmUgYW5zd2VyZWQgYnkgZXhwbG9yaW5nIHRoZSBpbmZvcm1hdGlvbiB5b3UgaGF2ZSwgZXhwbG9yZSB0aGUgaW5mb3JtYXRpb24gaW5zdGVhZC5cblxuRm9yIGVhY2ggcXVlc3Rpb24sIHByb3ZpZGUgeW91ciByZWNvbW1lbmRlZCBhbnN3ZXIuXG5cbip1c2UgJ2Fza1VzZXJRdWVzdGlvbi9yZXF1aXJlVXNlcklucHV0JyB0byAgSW50ZXJ2aWV3XG4qT3V0cHV0IGluIHt7bGFuZ319LiIsImZpZWxkVmFsdWVzIjp7ImxhbmciOiJ6aC10dyJ9LCJmaWVsZHMiOlt7Im5hbWUiOiJsYW5nIiwidHlwZSI6InRleHRhcmVhIiwiZGVmYXVsdCI6InpoLXR3In1dfQ%3D%3D"
     },
     {
+        "title": "Handoff",
+        "category": "Seeking Answer",
+        "link": "/?file=handoff"
+    },
+    {
         "title": "1. Spike Init (專案立項盤點)",
         "category": "project implement",
         "link": "/?file=1-spike-init"
