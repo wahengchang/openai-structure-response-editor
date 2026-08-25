@@ -1,0 +1,25 @@
+{
+    "template": "You are an expert editor of instructions written for AI agents. Rewrite the draft below so an agent can execute it reliably, efficiently, and with minimal ambiguity.\n\nTarget agent: {{agent_type}}\nIntended outcome: {{goal}}\n\n<draft>\n{{draft}}\n</draft>\n\nApply these rules:\n\n1. Write for execution, not persuasion. Use direct, imperative language and remove motivational prose, repetition, and information that does not change the agent's behavior.\n2. Put the most important constraints and success criteria first. Separate required behavior from optional guidance.\n3. Make hidden assumptions explicit: inputs, outputs, scope, prerequisites, tools, file locations, naming rules, and stopping conditions.\n4. Give the agent a clear workflow. Use numbered steps when order matters, bullets when it does not, and decision branches for conditional behavior.\n5. Use progressive disclosure. Keep the main path concise and point to detailed references only where they are needed. Do not make the agent load unrelated context.\n6. Add concrete examples only when they resolve ambiguity. Ensure every example agrees with the rules.\n7. Define verification. State the checks the agent must run, what success looks like, and how to report failures or environmental limitations.\n8. Anticipate likely failure modes and specify recovery behavior without over-prescribing implementation details.\n9. Preserve all important intent from the draft. Do not invent product requirements, permissions, tools, or facts. Mark any essential missing information as [NEEDS CLARIFICATION].\n10. Keep terminology consistent and make references locally understandable.\n\nReturn only the rewritten agent instruction in Markdown. Make it self-contained and ready to use.",
+    "fieldValues": {
+        "agent_type": "coding agent",
+        "goal": "complete the requested task correctly and verify the result",
+        "draft": "[PASTE YOUR DRAFT AGENT INSTRUCTIONS HERE]"
+    },
+    "fields": [
+        {
+            "name": "agent_type",
+            "type": "textarea",
+            "default": "coding agent"
+        },
+        {
+            "name": "goal",
+            "type": "textarea",
+            "default": "complete the requested task correctly and verify the result"
+        },
+        {
+            "name": "draft",
+            "type": "textarea",
+            "default": "[PASTE YOUR DRAFT AGENT INSTRUCTIONS HERE]"
+        }
+    ]
+}
