@@ -218,5 +218,10 @@
         "title": "Project Dev-Hub Kickoff & Backlog Refinement (專案啟動與待辦精煉)",
         "category": "project implement",
         "link": "/?file=project-dev-hub-kickoff-backlog-refinement"
+    },
+    {
+        "title": "架構分析",
+        "category": "project implement",
+        "link": "/?file=prompt"
     }
 ]

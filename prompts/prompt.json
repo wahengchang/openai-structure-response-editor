@@ -1,0 +1,13 @@
+{
+    "template": "{{background}}\n---above is background\n請研究 然後 建立可以推演實際行為的核心系統模型。\n\n先確認研究的是哪個專案、版本／branch，以及哪種部署方式。不要把同名工具、不同實作或歷史版本混在一起。\n\n一步一步完成：\n1. 核心元件有哪些，各負責什麼？區分邏輯模組、套件、框架、程序、瀏覽器與外部服務，標明誰包含誰、在哪裡執行。\n2. 系統怎樣啟動、載入與連接這些元件？\n3. 選一個最能解釋核心機制的真實操作，追蹤誰透過什麼接口呼叫誰，直到結果被使用者或呼叫方看見。\n4. 過程中的重要資料存在哪裡(Traceability)，誰能修改，如何同步與持久化？\n\n最後，輸出一張精簡結構圖、一張 sequence diagram，以及必要的接口表。保留真實的 function、method、event、hook、route 名稱；地址與 port 說明是預設、設定值還是實際觀察值(Interaction Boundary)。\n\n*每個關鍵結論附版本對應的檔案與 symbol 等證據。區分程式碼可推導、實際執行已驗證、文件描述與未知；示意名稱必須標明。\n*遇到我用詞不準確，先用「我的叫法 → 實際對象」對齊。聚焦核心機制，不逐目錄介紹，也不為了完整而展開無關細節。",
+    "fieldValues": {
+        "background": "[PROJECT_BACKGROUND]"
+    },
+    "fields": [
+        {
+            "name": "background",
+            "type": "textarea",
+            "default": "[PROJECT_BACKGROUND]"
+        }
+    ]
+}
